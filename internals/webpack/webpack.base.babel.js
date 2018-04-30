@@ -41,7 +41,7 @@ module.exports = (options) => ({
               modules: true,
             },
           },
-          'sass-loader',
+          'postcss-loader',
         ],
       },
       {

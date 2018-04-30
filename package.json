@@ -28,6 +28,7 @@
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
     "start:production": "npm run test && npm run build && npm run start:prod",
     "start:prod": "cross-env NODE_ENV=production node server",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "presetup": "npm i chalk shelljs",
     "setup": "node ./internals/scripts/setup.js",
     "postsetup": "npm run build:dll",
@@ -245,6 +246,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "@storybook/react": "^3.4.2",
     "add-asset-html-webpack-plugin": "2.0.1",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",

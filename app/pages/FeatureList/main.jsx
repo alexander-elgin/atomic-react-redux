@@ -7,10 +7,13 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 
-import H1 from 'components/H1';
-import List from './List';
+import H1 from '../../components/H1';
+import List from '../../components/List';
+
 import Feature from './Feature';
 import messages from './messages';
+
+import styles from './styles.scss';
 
 export default class FeatureList extends React.Component { // eslint-disable-line react/prefer-stateless-function
   shouldComponentUpdate() {
@@ -61,7 +64,7 @@ export default class FeatureList extends React.Component { // eslint-disable-lin
         <H1>
           <FormattedMessage {...messages.header} />
         </H1>
-        <List items={features} />
+        <List className={styles.list} items={features} />
       </div>
     );
   }

@@ -6,8 +6,8 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  header: {
-    id: 'app.pages.Home.header',
-    defaultMessage: 'This is Home component!',
+  somethingWrong: {
+    id: 'boilerplate.pages.Home.RepositoriesList.somethingWrong',
+    defaultMessage: 'Something went wrong, please try again!',
   },
 });

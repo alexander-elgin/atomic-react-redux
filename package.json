@@ -191,7 +191,7 @@
       "!app/*/RbGenerated*/*.{js,jsx}",
       "!app/app.js",
       "!app/global-styles.js",
-      "!app/*/*/Loadable.{js,jsx}",
+      "!app/pages/*/index.{js,jsx}",
       "!app/**/*.{story,stories}.{js,jsx}"
     ],
     "coverageThreshold": {

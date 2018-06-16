@@ -11,10 +11,10 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
+import NotFoundPage from '../../pages/404-NotFound';
 import HomePage from '../../pages/Home';
 import FeatureListPage from '../../pages/FeatureList';
 

@@ -1,8 +1,3 @@
-/*
- * Feature List Page
- *
- * List all the features
- */
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
@@ -48,13 +43,6 @@ export default class FeatureList extends React.Component { // eslint-disable-lin
       },
     ];
 
-    const features = featuresData.map((featureData) => (
-      <Feature
-        header={<FormattedMessage {...featureData.header} />}
-        description={<FormattedMessage {...featureData.description} />}
-      />
-    ));
-
     return (
       <div>
         <Helmet>
@@ -64,7 +52,7 @@ export default class FeatureList extends React.Component { // eslint-disable-lin
         <H1>
           <FormattedMessage {...messages.header} />
         </H1>
-        <List className={styles.list} items={features} />
+        <List className={styles.list} items={featuresData.map((featureData) => <Feature {...featureData} />)} />
       </div>
     );
   }

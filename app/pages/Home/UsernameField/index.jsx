@@ -17,7 +17,7 @@ UsernameField.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string
 };
-
+/* istanbul ignore next*/
 UsernameField.defaultProps = {
   onChange: () => {}
 };

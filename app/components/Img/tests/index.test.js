@@ -1,7 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Img from '../index';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const src = 'test.png';
 const alt = 'test';

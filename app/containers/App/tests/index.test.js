@@ -1,10 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import { Route } from 'react-router-dom';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import App from '../index';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
   it('should render the header', () => {

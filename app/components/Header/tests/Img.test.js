@@ -1,11 +1,14 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Img from '../Img';
 
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('<Img />', () => {
   it('should render an <img> tag', () => {
-    const renderedComponent = render(<Img src={'http://example.com/test.jpg'} alt={'test'} />);
+    const renderedComponent = mount(<Img src={'http://example.com/test.jpg'} alt={'test'} />);
     expect(renderedComponent.find('img').length).toEqual(1);
   });
 

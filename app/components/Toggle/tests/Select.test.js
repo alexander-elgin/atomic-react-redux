@@ -1,7 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Select from '../Select';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Select />', () => {
   it('should render an <select> tag', () => {

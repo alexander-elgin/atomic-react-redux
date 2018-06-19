@@ -1,7 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
-import { shallow, mount } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import LocaleToggle, { mapDispatchToProps } from '../index';
 import { changeLocale } from '../../LanguageProvider/actions';
@@ -9,6 +10,8 @@ import LanguageProvider from '../../LanguageProvider';
 
 import configureStore from '../../../configureStore';
 import { translationMessages } from '../../../i18n';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<LocaleToggle />', () => {
   let store;

@@ -3,13 +3,16 @@
  */
 
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import { IntlProvider } from 'react-intl';
 
 import RepositoriesList from './RepositoriesList';
 import { loadRepos } from '../../containers/App/actions';
 import { HomePage, mapDispatchToProps } from './main';
 import { changeUsername } from './actions';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Home />', () => {
   describe('rendering', () => {

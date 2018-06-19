@@ -1,11 +1,14 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import A from '../A';
 
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('<A />', () => {
   it('should render an <a> tag', () => {
-    const renderedComponent = render(<A />);
+    const renderedComponent = mount(<A />);
     expect(renderedComponent.find('a').length).toEqual(1);
   });
 

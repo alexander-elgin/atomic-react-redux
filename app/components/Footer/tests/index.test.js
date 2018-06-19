@@ -1,10 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import { FormattedMessage } from 'react-intl';
 
 import A from 'components/A';
 import messages from '../messages';
 import Footer from '../index';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Footer />', () => {
   it('should render the copyright notice', () => {

@@ -3,9 +3,12 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Button from '../index';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const handleRoute = () => {};
 const href = 'http://mxstbr.com';

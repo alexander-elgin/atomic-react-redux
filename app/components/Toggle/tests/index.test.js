@@ -1,8 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import { IntlProvider, defineMessages } from 'react-intl';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Toggle from '../index';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Toggle />', () => {
   it('should contain default text', () => {

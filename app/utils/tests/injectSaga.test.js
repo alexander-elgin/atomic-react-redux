@@ -2,14 +2,17 @@
  * Test injectors
  */
 
+import React from 'react';
 import { memoryHistory } from 'react-router-dom';
 import { put } from 'redux-saga/effects';
-import { shallow } from 'enzyme';
-import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import configureStore from '../../configureStore';
 import injectSaga from '../injectSaga';
 import * as sagaInjectors from '../sagaInjectors';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 // Fixtures
 const Component = () => null;

@@ -3,11 +3,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
+import Adapter from 'enzyme-adapter-react-16';
 
 import H1 from 'components/H1';
 import NotFound from './main';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<NotFound />', () => {
   it('should render the Page Not Found text', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import { FormattedNumber } from 'react-intl';
 
 import { Repository } from './';
@@ -8,6 +8,8 @@ import { Repository } from './';
 import IssueIcon from './IssueIcon';
 import IssuesLink from './IssuesLink';
 import RepositoryLink from './RepositoryLink';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Repository />', () => {
   let component;

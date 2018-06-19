@@ -1,7 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Circle from '../Circle';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Circle />', () => {
   it('should render an <div> tag', () => {

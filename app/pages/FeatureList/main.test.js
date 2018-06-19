@@ -1,11 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
 import { Helmet } from 'react-helmet';
+import Adapter from 'enzyme-adapter-react-16';
 
 import H1 from 'components/H1';
 import messages from './messages';
 import FeaturePage from './main';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<FeatureList />', () => {
   let component;

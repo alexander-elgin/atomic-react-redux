@@ -26,6 +26,7 @@
   "boilerplate.pages.Home.RepositoriesList.somethingWrong": "Etwas ist schief gelaufen. Bitte probieren noch einmal!",
   "boilerplate.pages.Home.UsernameField.atPrefix": "",
   "boilerplate.pages.Home.UsernameField.showRepositories": "Zeige die Github Repositories von",
+  "boilerplate.pages.Home.UsernameField.username": "Benutzername",
   "boilerplate.pages.NotFound.header": "Seite nicht gefunden.",
   "boilerplate.containers.LocaleToggle.de": "",
   "boilerplate.containers.LocaleToggle.en": ""

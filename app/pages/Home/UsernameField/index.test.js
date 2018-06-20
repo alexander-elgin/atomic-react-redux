@@ -1,11 +1,15 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { mountWithIntl, loadTranslationObject } from 'enzyme-react-intl';
 import { FormattedMessage } from 'react-intl';
 
 import UsernameField from './';
+import translations from '../../../translations/en.json';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+loadTranslationObject(translations);
 
 describe('<UsernameField />', () => {
   const value = 'user-name';
@@ -15,7 +19,8 @@ describe('<UsernameField />', () => {
 
   beforeEach(() => {
     onChangeSpy = jest.fn();
-    component = shallow(<UsernameField value={value} onChange={onChangeSpy} />);
+    const wrapper = mountWithIntl(<UsernameField value={value} onChange={onChangeSpy} />);
+    component = wrapper.childAt(0);
   });
 
   it('renders a label', () => expect(component.type()).toBe('label'));

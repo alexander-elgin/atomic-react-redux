@@ -5,11 +5,22 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import styles from './styles.scss';
 
-const UsernameField = ({value, onChange}) => (
+const UsernameField = ({onChange, value}) => (
   <label htmlFor="username">
     <FormattedMessage {...messages.showRepositories} />
     <span className={styles.prefix}><FormattedMessage {...messages.atPrefix} /></span>
-    <input className={styles.input} id="username" type="text" placeholder="username" value={value} onChange={onChange} />
+    <FormattedMessage {...messages.username}>
+      {(placeholder) => (
+        <input
+          className={styles.input}
+          id="username"
+          type="text"
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+        />
+      )}
+    </FormattedMessage>
   </label>
 );
 

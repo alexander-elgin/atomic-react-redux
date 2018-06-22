@@ -1,12 +1,12 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
-import { Helmet } from 'react-helmet';
 import Adapter from 'enzyme-adapter-react-16';
 
-import H1 from 'components/H1';
-import messages from './messages';
 import FeaturePage from './main';
+import messages from './messages';
+import H1 from '../../components/H1';
+import { MetaIntl, TitleIntl } from '../../components/Helmet';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -29,22 +29,16 @@ describe('<FeatureList />', () => {
 
   it('never re-renders', () => expect(component.instance().shouldComponentUpdate()).toBe(false));
 
-  describe('Helmet', () => {
-    let helmet;
+  it('sets the page title', () => {
+    const title = component.find(TitleIntl).first();
+    expect(title.prop('id')).toBe('boilerplate.pages.FeatureList.metaTitle');
+    expect(title.prop('defaultMessage')).toBe('Features List');
+  });
 
-    beforeEach(() => {
-      helmet = component.find(Helmet).first();
-    });
-
-    it('sets the page title', () => {
-      const title = helmet.find('title').first();
-      expect(title.text()).toBe('Feature Page');
-    });
-
-    it('sets the page description', () => {
-      const title = helmet.find('meta').first();
-      expect(title.prop('name')).toBe('description');
-      expect(title.prop('content')).toBe('Feature page of React.js Boilerplate application');
-    });
+  it('sets the page description', () => {
+    const description = component.find(MetaIntl).first();
+    expect(description.prop('name')).toBe('description');
+    expect(description.prop('id')).toBe('boilerplate.pages.FeatureList.metaDescription');
+    expect(description.prop('defaultMessage')).toBe('Features list of React.js Boilerplate application');
   });
 });

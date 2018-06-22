@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 
 import H1 from '../../components/H1';
 import List from '../../components/List';
+import { MetaIntl, TitleIntl } from '../../components/Helmet';
 
 import Feature from './Feature';
 import messages from './messages';
@@ -45,10 +45,8 @@ export default class FeatureList extends React.Component { // eslint-disable-lin
 
     return (
       <div>
-        <Helmet>
-          <title>Feature Page</title>
-          <meta name="description" content="Feature page of React.js Boilerplate application" />
-        </Helmet>
+        <TitleIntl {...messages.metaTitle} />
+        <MetaIntl name="description" {...messages.metaDescription} />
         <H1>
           <FormattedMessage {...messages.header} />
         </H1>

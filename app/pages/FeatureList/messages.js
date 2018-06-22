@@ -6,6 +6,14 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  metaTitle: {
+    id: 'boilerplate.pages.FeatureList.metaTitle',
+    defaultMessage: 'Features List',
+  },
+  metaDescription: {
+    id: 'boilerplate.pages.FeatureList.metaDescription',
+    defaultMessage: 'Features list of React.js Boilerplate application',
+  },
   header: {
     id: 'boilerplate.pages.FeatureList.header',
     defaultMessage: 'Features',

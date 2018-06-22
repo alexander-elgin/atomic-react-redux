@@ -7,6 +7,8 @@
   "boilerplate.pages.FeatureList.css.message": "Die nächste Generation von CSS",
   "boilerplate.pages.FeatureList.feedback.header": "Sofortiges Feedback",
   "boilerplate.pages.FeatureList.feedback.message": "Genießen Sie die beste Entwicklungserfahrung und programmieren Sie Ihre App so schnell wie noch nie! Ihre Änderungen an dem CSS und JavaScript sind sofort reflektiert, ohne die Seite aktualisieren zu müssen. So bleibt der Anwendungszustand bestehen, auch wenn Sie etwas in dem darunter liegenden Code aktualisieren!",
+  "boilerplate.pages.FeatureList.metaTitle": "Funktionsliste",
+  "boilerplate.pages.FeatureList.metaDescription": "Funktionsliste von React.js Boilerplate Anwendung",
   "boilerplate.pages.FeatureList.header": "",
   "boilerplate.pages.FeatureList.internationalization.header": "Komplette i18n Standard-Internationalisierung und Pluralisierung",
   "boilerplate.pages.FeatureList.internationalization.message": "Das Internet ist global. Mehrsprachige- und Pluralisierungsunterstützung ist entscheidend für große Web-Anwendungen.",

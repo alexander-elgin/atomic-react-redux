@@ -9,6 +9,7 @@ import { IntlProvider } from 'react-intl';
 
 import RepositoriesList from './RepositoriesList';
 import { loadRepos } from '../../containers/App/actions';
+import { MetaIntl, TitleIntl } from '../../components/Helmet';
 import { HomePage, mapDispatchToProps } from './main';
 import { changeUsername } from './actions';
 
@@ -31,6 +32,19 @@ describe('<Home />', () => {
     it('renders the centered section', () => expect(component.find('.centered-section').length).toBe(1));
     it('renders the form', () => expect(component.find('.form').length).toBe(1));
     it('renders the section', () => expect(component.find('.section').length).toBe(1));
+
+    it('sets the page title', () => {
+      const title = component.find(TitleIntl).first();
+      expect(title.prop('id')).toBe('boilerplate.pages.Home.metaTitle');
+      expect(title.prop('defaultMessage')).toBe('Home');
+    });
+
+    it('sets the page description', () => {
+      const description = component.find(MetaIntl).first();
+      expect(description.prop('name')).toBe('description');
+      expect(description.prop('id')).toBe('boilerplate.pages.Home.metaDescription');
+      expect(description.prop('defaultMessage')).toBe('The React.js Boilerplate application homepage');
+    });
   });
 
   it('fetches the repositories list on mount if the username is set', () => {

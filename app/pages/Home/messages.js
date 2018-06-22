@@ -6,6 +6,14 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  metaTitle: {
+    id: 'boilerplate.pages.Home.metaTitle',
+    defaultMessage: 'Home',
+  },
+  metaDescription: {
+    id: 'boilerplate.pages.Home.metaDescription',
+    defaultMessage: 'The React.js Boilerplate application homepage',
+  },
   startProjectHeader: {
     id: 'boilerplate.pages.Home.start_project.header',
     defaultMessage: 'Start your next react project in seconds',

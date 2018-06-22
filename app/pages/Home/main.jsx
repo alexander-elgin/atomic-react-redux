@@ -1,12 +1,5 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -17,6 +10,7 @@ import injectSaga from '../../utils/injectSaga';
 import { makeSelectRepos, makeSelectLoading, makeSelectError } from '../../containers/App/selectors';
 
 import H2 from '../../components/H2';
+import { MetaIntl, TitleIntl } from '../../components/Helmet';
 
 import RepositoriesList from './RepositoriesList';
 import UsernameField from './UsernameField';
@@ -50,10 +44,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
 
     return (
       <article>
-        <Helmet>
-          <title>Home Page</title>
-          <meta name="description" content="A React.js Boilerplate application homepage" />
-        </Helmet>
+        <TitleIntl {...messages.metaTitle} />
+        <MetaIntl name="description" {...messages.metaDescription} />
         <div>
           <section className={styles['centered-section']}>
             <H2>

@@ -22,6 +22,8 @@
   "boilerplate.pages.FeatureList.scaffolding.message": "Automatisieren Sie die Kreation von Komponenten, Containern, Routen, Selektoren und Sagas – und ihre Tests – direkt von dem Terminal!",
   "boilerplate.pages.FeatureList.state_management.header": "Berechenbare Stateverwaltung",
   "boilerplate.pages.FeatureList.state_management.message": "Unidirectional data flow erlaubt uns alle Änderungen ihrer Applikation zu loggen und time travel debugging einzusetzen.",
+  "boilerplate.pages.Home.metaTitle": "Startseite",
+  "boilerplate.pages.Home.metaDescription": "Die React.js Boilerplate-Anwendungsstartseite",
   "boilerplate.pages.Home.start_project.header": "Beginnen Sie Ihr nächstes React Projekt in Sekunden",
   "boilerplate.pages.Home.start_project.message": "Ein skalierendes, offline-first Fundament mit der besten DX und einem Fokus auf Performance und bewährte Methoden",
   "boilerplate.pages.Home.tryme.header": "Probiere mich!",

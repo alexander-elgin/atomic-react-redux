@@ -3,10 +3,10 @@ import Enzyme, { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
 import Adapter from 'enzyme-adapter-react-16';
 
-import FeaturePage from './main';
+import FeaturePage from './';
 import messages from './messages';
-import H1 from '../../components/H1';
-import { MetaIntl, TitleIntl } from '../../components/Helmet';
+import H1 from '../../../components/H1';
+import { MetaIntl, TitleIntl } from '../../../components/Helmet';
 
 Enzyme.configure({ adapter: new Adapter() });
 

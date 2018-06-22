@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import { IntlProvider } from 'react-intl';
 
-import FeatureListPage from './main';
+import FeatureListPage from './';
 
 storiesOf('FeatureListPage', module)
   .addDecorator((story) => (

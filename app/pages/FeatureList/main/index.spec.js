@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import { IntlProvider } from 'react-intl';
 
-import FeatureListPage from './main';
+import FeatureListPage from './';
 
 describe('<FeatureListPage />', () => {
   it('renders the Features List page', () => {

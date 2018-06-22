@@ -5,8 +5,8 @@ import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 
-import MainPage from './main';
-import configureStore from '../../configureStore';
+import MainPage from './';
+import configureStore from '../../../configureStore';
 
 const initialState = {};
 const history = createHistory();

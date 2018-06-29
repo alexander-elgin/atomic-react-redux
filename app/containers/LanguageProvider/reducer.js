@@ -11,13 +11,13 @@ import {
 } from './constants';
 import {
   DEFAULT_LOCALE,
-} from '../App/constants';
+} from '../../state/global/constants';
 
 const initialState = fromJS({
   locale: DEFAULT_LOCALE,
 });
 
-function languageProviderReducer(state = initialState, action) {
+function languageProviderReducer(state = initialState, action = {}) {
   switch (action.type) {
     case CHANGE_LOCALE:
       return state

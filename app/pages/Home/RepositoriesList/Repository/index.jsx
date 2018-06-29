@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { FormattedNumber } from 'react-intl';
 
-import { makeSelectCurrentUser } from '../../../../containers/App/selectors';
+import { makeSelectCurrentUser } from '../../../../state/global/selectors';
 
 import IssueIcon from './IssueIcon';
 import IssuesLink from './IssuesLink';

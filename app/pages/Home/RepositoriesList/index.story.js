@@ -5,7 +5,7 @@ import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 
 import configureStore from '../../../configureStore';
-import { LOAD_REPOS_SUCCESS } from '../../../containers/App/constants';
+import { LOAD_REPOS_SUCCESS } from '../../../state/global/constants';
 
 import RepositoriesList from './';
 

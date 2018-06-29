@@ -8,7 +8,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { IntlProvider } from 'react-intl';
 
 import RepositoriesList from '../RepositoriesList';
-import { loadRepos } from '../../../containers/App/actions';
+import { loadRepos } from '../../../state/global/actions';
 import { MetaIntl, TitleIntl } from '../../../components/Helmet';
 import { HomePage, mapDispatchToProps } from './';
 import { changeUsername } from '../actions';

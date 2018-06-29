@@ -1,11 +1,11 @@
 import { fromJS } from 'immutable';
 
-import appReducer from '../reducer';
+import appReducer from './reducer';
 import {
   loadRepos,
   reposLoaded,
   repoLoadingError,
-} from '../actions';
+} from './actions';
 
 describe('appReducer', () => {
   let state;
@@ -20,10 +20,7 @@ describe('appReducer', () => {
     });
   });
 
-  it('should return the initial state', () => {
-    const expectedResult = state;
-    expect(appReducer(undefined, {})).toEqual(expectedResult);
-  });
+  it('should return the initial state', () => expect(appReducer(undefined, {})).toEqual(state));
 
   it('should handle the loadRepos action correctly', () => {
     const expectedResult = state

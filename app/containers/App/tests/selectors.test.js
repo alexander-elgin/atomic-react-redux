@@ -6,7 +6,6 @@ import {
   makeSelectLoading,
   makeSelectError,
   makeSelectRepos,
-  makeSelectLocation,
 } from '../selectors';
 
 describe('selectGlobal', () => {
@@ -70,18 +69,5 @@ describe('makeSelectRepos', () => {
       },
     });
     expect(reposSelector(mockedState)).toEqual(repositories);
-  });
-});
-
-describe('makeSelectLocation', () => {
-  const locationStateSelector = makeSelectLocation();
-  it('should select the location', () => {
-    const route = fromJS({
-      location: { pathname: '/foo' },
-    });
-    const mockedState = fromJS({
-      route,
-    });
-    expect(locationStateSelector(mockedState)).toEqual(route.get('location').toJS());
   });
 });

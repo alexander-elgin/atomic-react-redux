@@ -7,7 +7,7 @@ import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import globalReducer from './state/global/reducer';
-import languageProviderReducer from './containers/LanguageProvider/reducer';
+import languageProviderReducer from './state/language/reducer';
 
 /*
  * routeReducer
@@ -25,7 +25,7 @@ const routeInitialState = fromJS({
 /**
  * Merge route into the global application state
  */
-function routeReducer(state = routeInitialState, action) {
+function routeReducer(state = routeInitialState, action = {}) {
   switch (action.type) {
     /* istanbul ignore next */
     case LOCATION_CHANGE:

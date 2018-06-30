@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 
 import {
   selectLanguage,
-} from '../selectors';
+} from './selectors';
 
 describe('selectLanguage', () => {
   it('should select the global state', () => {

@@ -8,10 +8,8 @@ import { fromJS } from 'immutable';
 
 import {
   CHANGE_LOCALE,
-} from './constants';
-import {
   DEFAULT_LOCALE,
-} from '../../state/global/constants';
+} from './constants';
 
 const initialState = fromJS({
   locale: DEFAULT_LOCALE,

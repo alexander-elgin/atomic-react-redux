@@ -17,10 +17,10 @@ import UsernameField from '../UsernameField';
 
 import messages from './messages';
 import { loadRepos } from '../../../state/global/actions';
-import { changeUsername } from '../actions';
-import { makeSelectUsername } from '../selectors';
-import reducer from '../reducer';
-import saga from '../saga';
+import { changeUsername } from '../../../state/github/actions';
+import { makeSelectUsername } from '../../../state/github/selectors';
+import reducer from '../../../state/github/reducer';
+import saga from '../../../state/github/saga';
 
 import styles from './styles.scss';
 
@@ -113,5 +113,5 @@ const withSaga = injectSaga({ key: 'home', saga });
 export default compose(
   withReducer,
   withSaga,
-  withConnect,
+  withConnect
 )(HomePage);

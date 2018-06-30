@@ -4,10 +4,10 @@
 
 import { put, takeLatest } from 'redux-saga/effects';
 
-import { LOAD_REPOS } from '../../../state/global/constants';
-import { reposLoaded, repoLoadingError } from '../../../state/global/actions';
+import { LOAD_REPOS } from '../global/constants';
+import { reposLoaded, repoLoadingError } from '../global/actions';
 
-import githubData, { getRepos } from '../saga';
+import githubData, { getRepos } from './saga';
 
 const username = 'mxstbr';
 

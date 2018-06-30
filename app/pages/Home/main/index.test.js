@@ -11,7 +11,7 @@ import RepositoriesList from '../RepositoriesList';
 import { loadRepos } from '../../../state/global/actions';
 import { MetaIntl, TitleIntl } from '../../../components/Helmet';
 import { HomePage, mapDispatchToProps } from './';
-import { changeUsername } from '../actions';
+import { changeUsername } from '../../../state/github/actions';
 
 Enzyme.configure({ adapter: new Adapter() });
 

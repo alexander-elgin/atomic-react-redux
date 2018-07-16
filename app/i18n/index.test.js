@@ -1,5 +1,5 @@
 import { DEFAULT_LOCALE } from '../state/language/constants';
-import { formatTranslationMessages } from '../i18n';
+import { formatTranslationMessages } from './';
 
 jest.mock('../translations/en.json', () => (
   {

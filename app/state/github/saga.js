@@ -1,39 +1,25 @@
-/**
- * Gets the repositories of the user from Github
- */
-
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
-import { LOAD_REPOS } from '../global/constants';
-import { reposLoaded, repoLoadingError } from '../global/actions';
+import { LOAD_REPOS } from './constants';
+import { setRepositories, setLoadRepositoriesError } from './actions';
+import { resetLoading } from '../global/actions';
 
 import request from '../../utils/request';
 import { makeSelectUsername } from './selectors';
 
-/**
- * Github repos request/response handler
- */
-export function* getRepos() {
-  // Select username from store
+export function* getRepositories() {
   const username = yield select(makeSelectUsername());
-  const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
 
   try {
-    // Call our request helper (see 'utils/request')
-    const repos = yield call(request, requestURL);
-    yield put(reposLoaded(repos, username));
+    const repositories = yield call(request, `https://api.github.com/users/${username}/repos?type=all&sort=updated`);
+    yield put(setRepositories(repositories, username));
   } catch (err) {
-    yield put(repoLoadingError(err));
+    yield put(setLoadRepositoriesError(err));
+  } finally {
+    yield put(resetLoading());
   }
 }
 
-/**
- * Root saga manages watcher lifecycle
- */
 export default function* githubData() {
-  // Watches for LOAD_REPOS actions and calls getRepos when one comes in.
-  // By using `takeLatest` only the result of the latest API call is applied.
-  // It returns task descriptor (just like fork) so we can continue execution
-  // It will be cancelled automatically on component unmount
-  yield takeLatest(LOAD_REPOS, getRepos);
+  yield takeLatest(LOAD_REPOS, getRepositories);
 }

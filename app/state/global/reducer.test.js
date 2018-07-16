@@ -1,57 +1,37 @@
 import { fromJS } from 'immutable';
 
-import appReducer from './reducer';
+import loadingReducer from './reducer';
+
 import {
-  loadRepos,
-  reposLoaded,
-  repoLoadingError,
+  resetLoading,
+  setLoading,
 } from './actions';
 
-describe('appReducer', () => {
+describe('loadingReducer', () => {
   let state;
+  const initialState = {
+    loading: false,
+  };
+
   beforeEach(() => {
-    state = fromJS({
-      loading: false,
-      error: false,
-      currentUser: false,
-      userData: fromJS({
-        repositories: false,
-      }),
+    state = fromJS(initialState);
+  });
+
+  describe('default', () => {
+    it('returns the initial state', () => expect(loadingReducer()).toEqual(state));
+  });
+
+  describe('#setLoading', () => {
+    it('sets the loading flag', () => {
+      const expectedResult = state.set('loading', true);
+      expect(loadingReducer(state, setLoading())).toEqual(expectedResult);
     });
   });
 
-  it('should return the initial state', () => expect(appReducer(undefined, {})).toEqual(state));
-
-  it('should handle the loadRepos action correctly', () => {
-    const expectedResult = state
-      .set('loading', true)
-      .set('error', false)
-      .setIn(['userData', 'repositories'], false);
-
-    expect(appReducer(state, loadRepos())).toEqual(expectedResult);
-  });
-
-  it('should handle the reposLoaded action correctly', () => {
-    const fixture = [{
-      name: 'My Repo',
-    }];
-    const username = 'test';
-    const expectedResult = state
-      .setIn(['userData', 'repositories'], fixture)
-      .set('loading', false)
-      .set('currentUser', username);
-
-    expect(appReducer(state, reposLoaded(fixture, username))).toEqual(expectedResult);
-  });
-
-  it('should handle the repoLoadingError action correctly', () => {
-    const fixture = {
-      msg: 'Not found',
-    };
-    const expectedResult = state
-      .set('error', fixture)
-      .set('loading', false);
-
-    expect(appReducer(state, repoLoadingError(fixture))).toEqual(expectedResult);
+  describe('#resetLoading', () => {
+    it('resets the loading flag', () => {
+      const expectedResult = state.set('loading', false);
+      expect(loadingReducer(state, resetLoading())).toEqual(expectedResult);
+    });
   });
 });

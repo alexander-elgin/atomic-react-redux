@@ -1,14 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { browserHistory } from 'react-router-dom';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import LocaleToggle, { mapDispatchToProps } from '../index';
+import LocaleToggle, { mapDispatchToProps } from '../';
 import { changeLocale } from '../../../state/language/actions';
+import reducer from '../../../state/language/reducer';
 import LanguageProvider from '../../LanguageProvider';
 
-import configureStore from '../../../configureStore';
+import configureStore from '../../../utils/store';
 import { translationMessages } from '../../../i18n';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -17,7 +17,9 @@ describe('<LocaleToggle />', () => {
   let store;
 
   beforeAll(() => {
-    store = configureStore({}, browserHistory);
+    store = configureStore({
+      language: reducer,
+    });
   });
 
   it('should render the default language messages', () => {

@@ -1,51 +1,27 @@
 import {
-  LOAD_REPOS,
-  LOAD_REPOS_SUCCESS,
-  LOAD_REPOS_ERROR,
+  SET_LOADING,
+  RESET_LOADING,
 } from './constants';
 
 import {
-  loadRepos,
-  reposLoaded,
-  repoLoadingError,
+  setLoading,
+  resetLoading,
 } from './actions';
 
-describe('App Actions', () => {
-  describe('loadRepos', () => {
-    it('should return the correct type', () => {
-      const expectedResult = {
-        type: LOAD_REPOS,
-      };
-
-      expect(loadRepos()).toEqual(expectedResult);
+describe('Loading Actions', () => {
+  describe('#setLoading', () => {
+    it('returns an object containing the action type', () => {
+      expect(setLoading()).toEqual({
+        type: SET_LOADING,
+      });
     });
   });
 
-  describe('reposLoaded', () => {
-    it('should return the correct type and the passed repos', () => {
-      const fixture = ['Test'];
-      const username = 'test';
-      const expectedResult = {
-        type: LOAD_REPOS_SUCCESS,
-        repos: fixture,
-        username,
-      };
-
-      expect(reposLoaded(fixture, username)).toEqual(expectedResult);
-    });
-  });
-
-  describe('repoLoadingError', () => {
-    it('should return the correct type and the error', () => {
-      const fixture = {
-        msg: 'Something went wrong!',
-      };
-      const expectedResult = {
-        type: LOAD_REPOS_ERROR,
-        error: fixture,
-      };
-
-      expect(repoLoadingError(fixture)).toEqual(expectedResult);
+  describe('#resetLoading', () => {
+    it('returns an object containing the action type', () => {
+      expect(resetLoading()).toEqual({
+        type: RESET_LOADING,
+      });
     });
   });
 });

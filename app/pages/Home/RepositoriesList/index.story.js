@@ -4,12 +4,15 @@ import { storiesOf } from '@storybook/react';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 
-import configureStore from '../../../configureStore';
-import { LOAD_REPOS_SUCCESS } from '../../../state/global/constants';
+import configureStore from '../../../utils/store';
+import { setRepositories } from '../../../state/github/actions';
+import reducer from '../../../state/github/reducer';
 
 import RepositoriesList from './';
 
-const store = configureStore({});
+const store = configureStore({
+  github: reducer,
+});
 const currentUser = 'alexander-elgin';
 const repositories = [
   {
@@ -34,11 +37,7 @@ const repositories = [
   },
 ];
 
-store.dispatch({
-  type: LOAD_REPOS_SUCCESS,
-  username: currentUser,
-  repos: repositories,
-});
+store.dispatch(setRepositories(repositories, currentUser));
 
 storiesOf('RepositoriesList', module)
   .add('loading', () => <RepositoriesList loading />)

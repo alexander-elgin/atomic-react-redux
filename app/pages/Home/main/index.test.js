@@ -8,10 +8,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import { IntlProvider } from 'react-intl';
 
 import RepositoriesList from '../RepositoriesList';
-import { loadRepos } from '../../../state/global/actions';
 import { MetaIntl, TitleIntl } from '../../../components/Helmet';
 import { HomePage, mapDispatchToProps } from './';
-import { changeUsername } from '../../../state/github/actions';
+import { loadRepositories, changeUsername } from '../../../state/github/actions';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -115,11 +114,11 @@ describe('<Home />', () => {
         expect(result.onSubmitForm).toBeDefined();
       });
 
-      it('dispatches loadRepos when called', () => {
+      it('dispatches the `loadRepositories` when called', () => {
         const dispatch = jest.fn();
         const result = mapDispatchToProps(dispatch);
         result.onSubmitForm();
-        expect(dispatch).toHaveBeenCalledWith(loadRepos());
+        expect(dispatch).toHaveBeenCalledWith(loadRepositories());
       });
 
       it('prevents execution of the default handler if called with event', () => {

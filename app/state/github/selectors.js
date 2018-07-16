@@ -1,17 +1,31 @@
-/**
- * Homepage selectors
- */
-
 import { createSelector } from 'reselect';
 
-const selectHome = (state) => state.get('home');
+const selectGithub = (state) => state.get('github');
 
 const makeSelectUsername = () => createSelector(
-  selectHome,
-  (homeState) => homeState.get('username')
+  selectGithub,
+  (githubState) => githubState.get('username')
+);
+
+const makeSelectCurrentUsername = () => createSelector(
+  selectGithub,
+  (githubState) => githubState.get('currentUsername')
+);
+
+const makeSelectRepositories = () => createSelector(
+  selectGithub,
+  (githubState) => githubState.get('repos')
+);
+
+const makeSelectError = () => createSelector(
+  selectGithub,
+  (githubState) => githubState.get('error')
 );
 
 export {
-  selectHome,
+  selectGithub,
+  makeSelectError,
+  makeSelectRepositories,
+  makeSelectCurrentUsername,
   makeSelectUsername,
 };

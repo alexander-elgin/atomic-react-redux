@@ -3,14 +3,16 @@ import { storiesOf } from '@storybook/react';
 
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
 
 import MainPage from './';
-import configureStore from '../../../configureStore';
+import configureStore from '../../../utils/store';
+import githubReducer from '../../../state/github/reducer';
+import globalReducer from '../../../state/global/reducer';
 
-const initialState = {};
-const history = createHistory();
-const store = configureStore(initialState, history);
+const store = configureStore({
+  github: githubReducer,
+  global: globalReducer,
+});
 
 storiesOf('MainPage', module)
   .addDecorator((story) => (

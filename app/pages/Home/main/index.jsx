@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
-import injectReducer from '../../../utils/injectReducer';
-import injectSaga from '../../../utils/injectSaga';
-import { makeSelectRepos, makeSelectLoading, makeSelectError } from '../../../state/global/selectors';
+import { setLoading } from '../../../state/global/actions';
+import { changeUsername, loadRepositories } from '../../../state/github/actions';
+import { makeSelectError, makeSelectRepositories, makeSelectUsername } from '../../../state/github/selectors';
+import { makeSelectLoading } from '../../../state/global/selectors';
 
 import H2 from '../../../components/H2';
 import { MetaIntl, TitleIntl } from '../../../components/Helmet';
@@ -16,11 +17,6 @@ import RepositoriesList from '../RepositoriesList';
 import UsernameField from '../UsernameField';
 
 import messages from './messages';
-import { loadRepos } from '../../../state/global/actions';
-import { changeUsername } from '../../../state/github/actions';
-import { makeSelectUsername } from '../../../state/github/selectors';
-import reducer from '../../../state/github/reducer';
-import saga from '../../../state/github/saga';
 
 import styles from './styles.scss';
 
@@ -92,26 +88,22 @@ export function mapDispatchToProps(dispatch) {
   return {
     onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
     onSubmitForm: (evt) => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadRepos());
+      if (evt !== undefined && evt.preventDefault) {
+        evt.preventDefault();
+      }
+
+      dispatch(setLoading());
+      dispatch(loadRepositories());
     },
   };
 }
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
+  repos: makeSelectRepositories(),
   username: makeSelectUsername(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
-
-const withReducer = injectReducer({ key: 'home', reducer });
-const withSaga = injectSaga({ key: 'home', saga });
-
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect
-)(HomePage);
+const connectedHomePage = connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connectedHomePage;

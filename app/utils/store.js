@@ -1,16 +1,13 @@
-/**
- * Create the store with dynamic reducers
- */
-
 import { createStore, applyMiddleware, compose } from 'redux';
 import { fromJS } from 'immutable';
 import { routerMiddleware } from 'react-router-redux';
+import { combineReducers } from 'redux-immutable';
 import createSagaMiddleware from 'redux-saga';
-import createReducer from './reducers';
+import { fork } from 'redux-saga/effects';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default function configureStore(initialState = {}, history) {
+export default function configureStore(reducers, initialState = {}, sagas = [], history = {}) {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
@@ -38,23 +35,16 @@ export default function configureStore(initialState = {}, history) {
   /* eslint-enable */
 
   const store = createStore(
-    createReducer(),
+    combineReducers({
+      ...reducers,
+    }),
     fromJS(initialState),
     composeEnhancers(...enhancers)
   );
 
-  // Extensions
-  store.runSaga = sagaMiddleware.run;
-  store.injectedReducers = {}; // Reducer registry
-  store.injectedSagas = {}; // Saga registry
-
-  // Make reducers hot reloadable, see http://mxs.is/googmo
-  /* istanbul ignore next */
-  if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      store.replaceReducer(createReducer(store.injectedReducers));
-    });
-  }
+  sagaMiddleware.run(function* rootSaga() {
+    yield sagas.map((saga) => fork(saga));
+  });
 
   return store;
 }

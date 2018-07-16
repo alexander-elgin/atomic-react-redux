@@ -41,7 +41,10 @@ import '!file-loader?name=[name].[ext]!./manifest.json';
 import 'file-loader?name=[name].[ext]!./.htaccess'; // eslint-disable-line import/extensions
 /* eslint-enable import/no-webpack-loader-syntax */
 
-import configureStore from './configureStore';
+import reducers from './reducers';
+import sagas from './sagas';
+
+import configureStore from './utils/store';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
@@ -63,7 +66,7 @@ openSansObserver.load().then(() => {
 // Create redux store with history
 const initialState = {};
 const history = createHistory();
-const store = configureStore(initialState, history);
+const store = configureStore(reducers, initialState, sagas, history);
 const MOUNT_NODE = document.getElementById('app');
 
 const render = (messages) => {

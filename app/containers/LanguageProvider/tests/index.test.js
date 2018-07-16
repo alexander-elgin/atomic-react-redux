@@ -2,11 +2,11 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import { FormattedMessage, defineMessages } from 'react-intl';
 import { Provider } from 'react-redux';
-import { browserHistory } from 'react-router-dom';
 import Adapter from 'enzyme-adapter-react-16';
 
 import ConnectedLanguageProvider, { LanguageProvider } from '../index';
-import configureStore from '../../../configureStore';
+import configureStore from '../../../utils/store';
+import reducer from '../../../state/language/reducer';
 
 import { translationMessages } from '../../../i18n';
 
@@ -36,7 +36,9 @@ describe('<ConnectedLanguageProvider />', () => {
   let store;
 
   beforeAll(() => {
-    store = configureStore({}, browserHistory);
+    store = configureStore({
+      language: reducer,
+    });
   });
 
   it('should render the default language messages', () => {

@@ -193,7 +193,6 @@
       "!app/global-styles.js",
       "!app/reducers.js",
       "!app/sagas.js",
-      "!app/utils/store.js",
       "!app/pages/*/index.{js,jsx}",
       "!app/**/*.{story,stories}.{js,jsx}"
     ],

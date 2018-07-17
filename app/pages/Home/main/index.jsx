@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
-import { setLoading } from '../../../state/global/actions';
+import { setLoading } from '../../../state/loading/actions';
 import { changeUsername, loadRepositories } from '../../../state/github/actions';
 import { makeSelectError, makeSelectRepositories, makeSelectUsername } from '../../../state/github/selectors';
-import { makeSelectLoading } from '../../../state/global/selectors';
+import { makeSelectLoading } from '../../../state/loading/selectors';
 
 import H2 from '../../../components/H2';
 import { MetaIntl, TitleIntl } from '../../../components/Helmet';

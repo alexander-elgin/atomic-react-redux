@@ -10,7 +10,7 @@ describe('loading selector', () => {
   const loadingState = fromJS({ loading });
 
   const mockedState = fromJS({
-    global: loadingState,
+    loading: loadingState,
   });
 
   describe('#selectLoading', () => {

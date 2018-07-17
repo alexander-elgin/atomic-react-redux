@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const selectLoading = (state) => state.get('global');
+const selectLoading = (state) => state.get('loading');
 
 const makeSelectLoading = () => createSelector(
   selectLoading,

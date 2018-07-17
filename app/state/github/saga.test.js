@@ -2,7 +2,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 import { LOAD_REPOS } from './constants';
 import { setRepositories, setLoadRepositoriesError } from './actions';
-import { resetLoading } from '../global/actions';
+import { resetLoading } from '../loading/actions';
 
 import githubData, { getRepositories } from './saga';
 

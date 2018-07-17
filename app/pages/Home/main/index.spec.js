@@ -7,11 +7,11 @@ import { Provider } from 'react-redux';
 import MainPage from './';
 import configureStore from '../../../utils/store';
 import githubReducer from '../../../state/github/reducer';
-import globalReducer from '../../../state/global/reducer';
+import loadingReducer from '../../../state/loading/reducer';
 
 const store = configureStore({
   github: githubReducer,
-  global: globalReducer,
+  loading: loadingReducer,
 });
 
 describe('<MainPage />', () => {

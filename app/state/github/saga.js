@@ -2,7 +2,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { LOAD_REPOS } from './constants';
 import { setRepositories, setLoadRepositoriesError } from './actions';
-import { resetLoading } from '../global/actions';
+import { resetLoading } from '../loading/actions';
 
 import request from '../../utils/request';
 import { makeSelectUsername } from './selectors';

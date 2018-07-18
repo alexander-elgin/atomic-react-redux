@@ -8,28 +8,32 @@ import {
 } from './constants';
 
 const initialState = fromJS({
-  currentUsername: '',
-  username: '',
-  repos: false,
-  error: false,
+  repositories: {
+    data: false,
+    error: false,
+  },
+  username: {
+    current: '',
+    selected: '',
+  },
 });
 
 function githubReducer(state = initialState, action = {}) {
   switch (action.type) {
     case CHANGE_USERNAME:
       return state
-        .set('username', action.name);
+        .setIn(['username', 'current'], action.username);
     case LOAD_REPOS:
       return state
-        .set('error', false)
-        .set('repos', false);
+        .setIn(['repositories', 'data'], false)
+        .setIn(['repositories', 'error'], false);
     case LOAD_REPOS_SUCCESS:
       return state
-        .set('currentUsername', action.currentUsername)
-        .set('repos', action.repos);
+        .setIn(['username', 'selected'], action.username)
+        .setIn(['repositories', 'data'], action.repositories);
     case LOAD_REPOS_ERROR:
       return state
-        .set('error', action.error);
+        .setIn(['repositories', 'error'], action.error);
     default:
       return state;
   }

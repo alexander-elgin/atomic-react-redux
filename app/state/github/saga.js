@@ -5,10 +5,10 @@ import { setRepositories, setLoadRepositoriesError } from './actions';
 import { resetLoading } from '../loading/actions';
 
 import request from '../../utils/request';
-import { makeSelectUsername } from './selectors';
+import { makeSelectCurrentUsername } from './selectors';
 
 export function* getRepositories() {
-  const username = yield select(makeSelectUsername());
+  const username = yield select(makeSelectCurrentUsername());
 
   try {
     const repositories = yield call(request, `https://api.github.com/users/${username}/repos?type=all&sort=updated`);

@@ -5,16 +5,25 @@ import {
   makeSelectError,
   makeSelectRepositories,
   makeSelectCurrentUsername,
-  makeSelectUsername,
+  makeSelectSelectedUsername,
 } from './selectors';
 
 describe('github selectors', () => {
-  const currentUsername = 'alexander-elgin';
-  const username = 'alex';
+  const currentUsername = 'alex';
+  const selectedUsername = 'alexander-elgin';
   const repos = ['repository'];
   const error = new Error('something weird happen');
 
-  const githubState = fromJS({ currentUsername, username, repos, error });
+  const githubState = fromJS({
+    repositories: {
+      data: repos,
+      error,
+    },
+    username: {
+      current: currentUsername,
+      selected: selectedUsername,
+    },
+  });
 
   const mockedState = fromJS({
     github: githubState,
@@ -34,13 +43,13 @@ describe('github selectors', () => {
     it('select the repositories', () => expect(repositoriesSelector(mockedState)).toEqual(fromJS(repos)));
   });
 
-  describe('#makeSelectCurrentUsername', () => {
-    const currentUsernameSelector = makeSelectCurrentUsername();
-    it('select the current username', () => expect(currentUsernameSelector(mockedState)).toEqual(currentUsername));
+  describe('#makeSelectSelectedUsername', () => {
+    const currentUsernameSelector = makeSelectSelectedUsername();
+    it('select the current username', () => expect(currentUsernameSelector(mockedState)).toEqual(selectedUsername));
   });
 
-  describe('#makeSelectUsername', () => {
-    const usernameSelector = makeSelectUsername();
-    it('select the username', () => expect(usernameSelector(mockedState)).toEqual(username));
+  describe('#makeSelectCurrentUsername', () => {
+    const usernameSelector = makeSelectCurrentUsername();
+    it('select the username', () => expect(usernameSelector(mockedState)).toEqual(currentUsername));
   });
 });

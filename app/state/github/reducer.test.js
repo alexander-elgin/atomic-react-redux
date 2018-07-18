@@ -12,10 +12,14 @@ import {
 describe('github Reducer', () => {
   let state;
   const initialState = {
-    currentUsername: '',
-    username: '',
-    repos: false,
-    error: false,
+    repositories: {
+      data: false,
+      error: false,
+    },
+    username: {
+      current: '',
+      selected: '',
+    },
   };
 
   beforeEach(() => {
@@ -27,16 +31,15 @@ describe('github Reducer', () => {
   });
 
   describe('#changeUsername', () => {
-    it('changes the username', () => {
+    it('changes the current username', () => {
       const username = 'alexander-elgin';
-      const expectedResult = state.set('username', username);
-      expect(githubReducer(state, changeUsername(username))).toEqual(expectedResult);
+      expect(githubReducer(state, changeUsername(username))).toEqual(state.setIn(['username', 'current'], username));
     });
   });
 
   describe('#loadRepositories', () => {
     it('resets the error and the repositories list', () => {
-      const expectedResult = state.set('error', false).set('repos', false);
+      const expectedResult = state.setIn(['repositories', 'data'], false).setIn(['repositories', 'error'], false);
       expect(githubReducer(state, loadRepositories())).toEqual(expectedResult);
     });
   });
@@ -44,9 +47,9 @@ describe('github Reducer', () => {
   describe('#setRepositories', () => {
     it('resets the error and the repositories list', () => {
       const username = 'alexander-elgin';
-      const repositories = ['repository'];
-      const expectedResult = state.set('currentUsername', username).set('repos', repositories);
-      expect(githubReducer(state, setRepositories(repositories, username))).toEqual(expectedResult);
+      const reps = ['repository'];
+      const expectedResult = state.setIn(['username', 'selected'], username).setIn(['repositories', 'data'], reps);
+      expect(githubReducer(state, setRepositories(reps, username))).toEqual(expectedResult);
     });
   });
 
@@ -56,7 +59,7 @@ describe('github Reducer', () => {
         msg: 'something weird happen',
       };
 
-      const expectedResult = state.set('error', error);
+      const expectedResult = state.setIn(['repositories', 'error'], error);
       expect(githubReducer(state, setLoadRepositoriesError(error))).toEqual(expectedResult);
     });
   });

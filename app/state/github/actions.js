@@ -5,10 +5,10 @@ import {
   LOAD_REPOS_SUCCESS,
 } from './constants';
 
-export function changeUsername(name) {
+export function changeUsername(username) {
   return {
     type: CHANGE_USERNAME,
-    name,
+    username,
   };
 }
 
@@ -18,11 +18,11 @@ export function loadRepositories() {
   };
 }
 
-export function setRepositories(repos, currentUsername) {
+export function setRepositories(repositories, username) {
   return {
     type: LOAD_REPOS_SUCCESS,
-    repos,
-    currentUsername,
+    repositories,
+    username,
   };
 }
 

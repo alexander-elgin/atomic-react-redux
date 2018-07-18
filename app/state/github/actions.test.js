@@ -19,7 +19,7 @@ describe('github Actions', () => {
 
       expect(changeUsername(username)).toEqual({
         type: CHANGE_USERNAME,
-        name: username,
+        username,
       });
     });
   });
@@ -34,13 +34,13 @@ describe('github Actions', () => {
 
   describe('#setRepositories', () => {
     it('returns an object containing the action type, the username and the repositories list', () => {
-      const repos = ['repository'];
-      const currentUsername = 'alexander-elgin';
+      const repositories = ['repository'];
+      const username = 'alexander-elgin';
 
-      expect(setRepositories(repos, currentUsername)).toEqual({
+      expect(setRepositories(repositories, username)).toEqual({
         type: LOAD_REPOS_SUCCESS,
-        repos,
-        currentUsername,
+        repositories,
+        username,
       });
     });
   });

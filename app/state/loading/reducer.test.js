@@ -10,7 +10,7 @@ import {
 describe('loadingReducer', () => {
   let state;
   const initialState = {
-    loading: false,
+    anticipantsNumber: 0,
   };
 
   beforeEach(() => {
@@ -23,14 +23,14 @@ describe('loadingReducer', () => {
 
   describe('#setLoading', () => {
     it('sets the loading flag', () => {
-      const expectedResult = state.set('loading', true);
+      const expectedResult = state.set('anticipantsNumber', 1);
       expect(loadingReducer(state, setLoading())).toEqual(expectedResult);
     });
   });
 
   describe('#resetLoading', () => {
     it('resets the loading flag', () => {
-      const expectedResult = state.set('loading', false);
+      const expectedResult = state.set('anticipantsNumber', 0);
       expect(loadingReducer(state, resetLoading())).toEqual(expectedResult);
     });
   });

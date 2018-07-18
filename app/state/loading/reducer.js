@@ -6,17 +6,17 @@ import {
 } from './constants';
 
 const initialState = fromJS({
-  loading: false,
+  anticipantsNumber: 0,
 });
 
 function loadingReducer(state = initialState, action = {}) {
   switch (action.type) {
     case SET_LOADING:
       return state
-        .set('loading', true);
+        .set('anticipantsNumber', state.get('anticipantsNumber') + 1);
     case RESET_LOADING:
       return state
-        .set('loading', false);
+        .set('anticipantsNumber', state.get('anticipantsNumber') === 0 ? 0 : state.get('anticipantsNumber') - 1);
     default:
       return state;
   }

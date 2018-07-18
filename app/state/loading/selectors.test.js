@@ -6,8 +6,8 @@ import {
 } from './selectors';
 
 describe('loading selector', () => {
-  const loading = false;
-  const loadingState = fromJS({ loading });
+  const anticipantsNumber = 0;
+  const loadingState = fromJS({ anticipantsNumber });
 
   const mockedState = fromJS({
     loading: loadingState,
@@ -19,6 +19,6 @@ describe('loading selector', () => {
 
   describe('#makeSelectLoading', () => {
     const loadingSelector = makeSelectLoading();
-    it('selects the loading', () => expect(loadingSelector(mockedState)).toEqual(loading));
+    it('selects the loading', () => expect(loadingSelector(mockedState)).toEqual(false));
   });
 });

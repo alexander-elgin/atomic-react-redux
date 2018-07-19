@@ -3,7 +3,7 @@
 exports[`<FeatureListPage /> renders the Features List page 1`] = `
 <div>
   <h1
-    className="H1__H1-HiqLy jFknTe"
+    className="component__H1-jwYYFV jNycDD"
   >
     <span>
       Features

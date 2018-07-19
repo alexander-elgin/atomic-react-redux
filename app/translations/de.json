@@ -1,6 +1,6 @@
 {
-  "boilerplate.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
-  "boilerplate.components.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
+  "boilerplate.organisms.Footer.author.message": "Mit Liebe gemacht von {author}.",
+  "boilerplate.organisms.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
   "boilerplate.organisms.Header.features": "Features",
   "boilerplate.organisms.Header.home": "HauptSeite",
   "boilerplate.pages.FeatureList.css.header": "",

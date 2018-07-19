@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Circle from './Circle';
-import Wrapper from './Wrapper';
+import Circle from '../Circle';
+import Wrapper from '../Wrapper';
 
 const LoadingIndicator = () => (
   <Wrapper>

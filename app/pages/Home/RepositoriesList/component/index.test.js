@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { IntlProvider } from 'react-intl';
 
 import List from '../../../../common/atoms/List';
-import LoadingIndicator from '../../../../components/LoadingIndicator';
+import LoadingIndicator from '../../../../common/molecules/LoadingIndicator';
 
 import RepositoriesList from './';
 

@@ -12,7 +12,7 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import Header from 'components/Header';
-import Footer from 'components/Footer';
+import Footer from 'common/organisms/Footer';
 
 import NotFoundPage from '../../pages/404-NotFound';
 import HomePage from '../../pages/Home';

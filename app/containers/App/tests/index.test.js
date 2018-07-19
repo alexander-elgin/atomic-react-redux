@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Header from 'components/Header';
-import Footer from 'components/Footer';
+import Footer from 'common/organisms/Footer';
 import App from '../index';
 
 Enzyme.configure({ adapter: new Adapter() });

@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import H1 from '../../../common/atoms/H1';
-import List from '../../../components/List';
+import List from '../../../common/atoms/List';
 import { MetaIntl, TitleIntl } from '../../../common/molecules/Helmet';
 
 import Feature from '../Feature';

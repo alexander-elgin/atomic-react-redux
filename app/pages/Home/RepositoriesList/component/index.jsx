@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import List from '../../../../components/List';
+import List from '../../../../common/atoms/List';
 import LoadingIndicator from '../../../../components/LoadingIndicator';
 
 import Repository from '../Repository';

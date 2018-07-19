@@ -1,7 +1,3 @@
-/**
- * Test the HomePage
- */
-
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -9,8 +5,7 @@ import { IntlProvider } from 'react-intl';
 
 import RepositoriesList from '../RepositoriesList';
 import { MetaIntl, TitleIntl } from '../../../components/Helmet';
-import { HomePage, mapDispatchToProps } from './';
-import { loadRepositories, changeUsername } from '../../../state/github/actions';
+import HomePage from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -88,46 +83,5 @@ describe('<Home />', () => {
       </IntlProvider>
     );
     expect(submitSpy).not.toHaveBeenCalled();
-  });
-
-  describe('#mapDispatchToProps', () => {
-    describe('onChangeUsername', () => {
-      it('is injected', () => {
-        const dispatch = jest.fn();
-        const result = mapDispatchToProps(dispatch);
-        expect(result.onChangeUsername).toBeDefined();
-      });
-
-      it('dispatches changeUsername when called', () => {
-        const dispatch = jest.fn();
-        const result = mapDispatchToProps(dispatch);
-        const username = 'mxstbr';
-        result.onChangeUsername({ target: { value: username } });
-        expect(dispatch).toHaveBeenCalledWith(changeUsername(username));
-      });
-    });
-
-    describe('onSubmitForm', () => {
-      it('is injected', () => {
-        const dispatch = jest.fn();
-        const result = mapDispatchToProps(dispatch);
-        expect(result.onSubmitForm).toBeDefined();
-      });
-
-      it('dispatches the `loadRepositories` when called', () => {
-        const dispatch = jest.fn();
-        const result = mapDispatchToProps(dispatch);
-        result.onSubmitForm();
-        expect(dispatch).toHaveBeenCalledWith(loadRepositories());
-      });
-
-      it('prevents execution of the default handler if called with event', () => {
-        const preventDefault = jest.fn();
-        const result = mapDispatchToProps(() => {});
-        const evt = { preventDefault };
-        result.onSubmitForm(evt);
-        expect(preventDefault).toHaveBeenCalledWith();
-      });
-    });
   });
 });

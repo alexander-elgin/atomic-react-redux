@@ -4,9 +4,9 @@ import renderer from 'react-test-renderer';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 
-import configureStore from '../../../utils/store';
-import { setRepositories } from '../../../state/github/actions';
-import reducer from '../../../state/github/reducer';
+import configureStore from '../../../../utils/store';
+import { setRepositories } from '../../../../state/github/actions';
+import reducer from '../../../../state/github/reducer';
 
 import RepositoriesList from './';
 

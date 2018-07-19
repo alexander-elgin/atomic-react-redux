@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { FormattedNumber } from 'react-intl';
 
-import { makeSelectSelectedUsername } from '../../../../state/github/selectors';
-
-import IssueIcon from './IssueIcon';
-import IssuesLink from './IssuesLink';
-import RepositoryLink from './RepositoryLink';
+import IssueIcon from '../IssueIcon';
+import IssuesLink from '../IssuesLink';
+import RepositoryLink from '../RepositoryLink';
 
 import styles from './styles.scss';
 
@@ -29,6 +25,4 @@ Repository.propTypes = {
   currentUser: PropTypes.string,
 };
 
-export default connect(createStructuredSelector({
-  currentUser: makeSelectSelectedUsername(),
-}))(Repository);
+export default Repository;

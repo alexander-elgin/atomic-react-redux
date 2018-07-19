@@ -8,7 +8,7 @@ import { FormattedMessage } from 'react-intl';
 import Adapter from 'enzyme-adapter-react-16';
 
 import H1 from 'components/H1';
-import NotFound from './main';
+import NotFound from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 

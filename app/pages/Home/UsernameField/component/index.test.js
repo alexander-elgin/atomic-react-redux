@@ -5,7 +5,7 @@ import { mountWithIntl, loadTranslationObject } from 'enzyme-react-intl';
 import { FormattedMessage } from 'react-intl';
 
 import UsernameField from './';
-import translations from '../../../translations/en.json';
+import translations from '../../../../translations/en.json';
 
 Enzyme.configure({ adapter: new Adapter() });
 

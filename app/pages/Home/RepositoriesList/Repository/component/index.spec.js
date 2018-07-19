@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import { IntlProvider } from 'react-intl';
 
-import { Repository } from './';
+import Repository from './';
 
 const currentUser = 'alexander-elgin';
 

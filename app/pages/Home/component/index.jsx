@@ -1,14 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { createStructuredSelector } from 'reselect';
-
-import { setLoading } from '../../../state/loading/actions';
-import { changeUsername, loadRepositories } from '../../../state/github/actions';
-import { makeSelectError, makeSelectRepositories, makeSelectCurrentUsername } from '../../../state/github/selectors';
-import { makeSelectLoading } from '../../../state/loading/selectors';
 
 import H2 from '../../../components/H2';
 import { MetaIntl, TitleIntl } from '../../../components/Helmet';
@@ -20,7 +12,7 @@ import messages from './messages';
 
 import styles from './styles.scss';
 
-export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
    * when initial state username is not null, submit the form to load repos
    */
@@ -84,26 +76,4 @@ HomePage.propTypes = {
   onChangeUsername: PropTypes.func,
 };
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-    onSubmitForm: (evt) => {
-      if (evt !== undefined && evt.preventDefault) {
-        evt.preventDefault();
-      }
-
-      dispatch(setLoading());
-      dispatch(loadRepositories());
-    },
-  };
-}
-
-const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepositories(),
-  username: makeSelectCurrentUsername(),
-  loading: makeSelectLoading(),
-  error: makeSelectError(),
-});
-
-const connectedHomePage = connect(mapStateToProps, mapDispatchToProps)(HomePage);
-export default connectedHomePage;
+export default HomePage;

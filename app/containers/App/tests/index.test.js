@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import { Route } from 'react-router-dom';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Header from 'components/Header';
+import Header from 'common/organisms/Header';
 import Footer from 'common/organisms/Footer';
 import App from '../index';
 

@@ -1,8 +1,8 @@
 {
   "boilerplate.components.Footer.author.message": "Made with love by {author}.",
   "boilerplate.components.Footer.license.message": "This project is licensed under the MIT license.",
-  "boilerplate.components.Header.features": "Features",
-  "boilerplate.components.Header.home": "Home",
+  "boilerplate.organisms.Header.features": "Features",
+  "boilerplate.organisms.Header.home": "Home",
   "boilerplate.pages.FeatureList.css.header": "Features",
   "boilerplate.pages.FeatureList.css.message": "Next generation CSS",
   "boilerplate.pages.FeatureList.feedback.header": "Instant feedback",

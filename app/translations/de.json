@@ -1,8 +1,8 @@
 {
   "boilerplate.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
   "boilerplate.components.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
-  "boilerplate.components.Header.features": "",
-  "boilerplate.components.Header.home": "",
+  "boilerplate.organisms.Header.features": "Features",
+  "boilerplate.organisms.Header.home": "HauptSeite",
   "boilerplate.pages.FeatureList.css.header": "",
   "boilerplate.pages.FeatureList.css.message": "Die nächste Generation von CSS",
   "boilerplate.pages.FeatureList.feedback.header": "Sofortiges Feedback",

@@ -5,43 +5,43 @@ exports[`<RepositoriesList /> renders a loading spinner if the loading flag is s
   className="wrapper"
 >
   <div
-    className="Wrapper__Wrapper-cZxMuO clTlQL"
+    className="component__Wrapper-tqXXJ kGHpzE"
   >
     <div
-      className="Circle__CirclePrimitive-doUHun cEgePr"
+      className="component__CirclePrimitive-btKINh haDOvn"
     />
     <div
-      className="Circle__CirclePrimitive-iczIjT cRAfhu"
+      className="component__CirclePrimitive-pkGDG ccAQaa"
     />
     <div
-      className="Circle__CirclePrimitive-cmIcdf bqKRvh"
+      className="component__CirclePrimitive-vARqS hZBgrB"
     />
     <div
-      className="Circle__CirclePrimitive-jOiEYJ hCHQcr"
+      className="component__CirclePrimitive-kmxXJc hEsAQa"
     />
     <div
-      className="Circle__CirclePrimitive-eAcCGr kKzEtR"
+      className="component__CirclePrimitive-gVxkdg ivmHjX"
     />
     <div
-      className="Circle__CirclePrimitive-fQPULp dSBEjp"
+      className="component__CirclePrimitive-bYMwJS dHOtTh"
     />
     <div
-      className="Circle__CirclePrimitive-egCDAQ jeanZi"
+      className="component__CirclePrimitive-giVFH MvvSW"
     />
     <div
-      className="Circle__CirclePrimitive-kwRWka kZwOyC"
+      className="component__CirclePrimitive-GEBcB fBNlEd"
     />
     <div
-      className="Circle__CirclePrimitive-jnKZUF dCObWb"
+      className="component__CirclePrimitive-oBIuw cMbqrp"
     />
     <div
-      className="Circle__CirclePrimitive-jSRngu jjMCWt"
+      className="component__CirclePrimitive-lbntKs ksCEkA"
     />
     <div
-      className="Circle__CirclePrimitive-gbjHSq dUDzXR"
+      className="component__CirclePrimitive-gGePHY fAyZmQ"
     />
     <div
-      className="Circle__CirclePrimitive-blqIGF gCVwpR"
+      className="component__CirclePrimitive-DFTpT ixalNj"
     />
   </div>
 </div>

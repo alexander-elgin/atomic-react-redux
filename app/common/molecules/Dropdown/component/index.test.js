@@ -3,11 +3,11 @@ import Enzyme, { shallow } from 'enzyme';
 import { IntlProvider, defineMessages } from 'react-intl';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Toggle from '../index';
+import Dropdown from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<Toggle />', () => {
+describe('<Dropdown />', () => {
   it('should contain default text', () => {
     const defaultEnMessage = 'someContent';
     const defaultDeMessage = 'someOtherContent';
@@ -23,14 +23,14 @@ describe('<Toggle />', () => {
     });
     const renderedComponent = shallow(
       <IntlProvider locale="en">
-        <Toggle values={['en', 'de']} messages={messages} />
+        <Dropdown values={['en', 'de']} messages={messages} />
       </IntlProvider>
     );
-    expect(renderedComponent.contains(<Toggle values={['en', 'de']} messages={messages} />)).toBe(true);
+    expect(renderedComponent.contains(<Dropdown values={['en', 'de']} messages={messages} />)).toBe(true);
     expect(renderedComponent.find('option').length).toBe(0);
   });
-  it('should not have ToggleOptions if props.values is not defined', () => {
-    const renderedComponent = shallow(<Toggle />);
+  it('should not have options if props.values is not defined', () => {
+    const renderedComponent = shallow(<Dropdown />);
     expect(renderedComponent.contains(<option>--</option>)).toBe(true);
     expect(renderedComponent.find('option').length).toBe(1);
   });

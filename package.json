@@ -194,6 +194,7 @@
       "!app/reducers.js",
       "!app/sagas.js",
       "!app/pages/*/index.{js,jsx}",
+      "!app/common/*/*/index.js",
       "!app/**/*.{story,stories}.{js,jsx}"
     ],
     "coverageThreshold": {

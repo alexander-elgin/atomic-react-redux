@@ -5,22 +5,21 @@ import { mountWithIntl } from 'enzyme-react-intl';
 
 import { FormattedMessage } from 'react-intl';
 
-import MetaIntl from './';
+import TitleIntl from './';
 
-import Meta from './Meta';
+import Title from '../Title';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<MetaIntl />', () => {
+describe('<TitleIntl />', () => {
   let component;
-  const type = 'description';
   const message = {
-    id: 'boilerplate.pages.FeatureList.metaDescription',
-    defaultMessage: 'Features list of React.js Boilerplate application',
+    id: 'boilerplate.pages.FeatureList.metaTitle',
+    defaultMessage: 'Features List',
   };
 
   beforeEach(() => {
-    component = mountWithIntl(<MetaIntl name={type} {...message} />).find(FormattedMessage).first();
+    component = mountWithIntl(<TitleIntl {...message} />).find(FormattedMessage).first();
   });
 
   it('renders a FormattedMessage component', () => {
@@ -28,9 +27,8 @@ describe('<MetaIntl />', () => {
   });
 
   it('renders a Title component', () => {
-    const meta = component.childAt(0);
-    expect(meta.type()).toEqual(Meta);
-    expect(meta.prop('content')).toBe(message.defaultMessage);
-    expect(meta.prop('name')).toBe(type);
+    const title = component.childAt(0);
+    expect(title.type()).toEqual(Title);
+    expect(title.prop('content')).toBe(message.defaultMessage);
   });
 });

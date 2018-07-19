@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import H2 from '../../../common/atoms/H2';
-import { MetaIntl, TitleIntl } from '../../../components/Helmet';
+import { MetaIntl, TitleIntl } from '../../../common/molecules/Helmet';
 
 import RepositoriesList from '../RepositoriesList';
 import UsernameField from '../UsernameField';

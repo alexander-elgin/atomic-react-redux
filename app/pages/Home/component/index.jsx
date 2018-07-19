@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import H2 from '../../../components/H2';
+import H2 from '../../../common/atoms/H2';
 import { MetaIntl, TitleIntl } from '../../../components/Helmet';
 
 import RepositoriesList from '../RepositoriesList';

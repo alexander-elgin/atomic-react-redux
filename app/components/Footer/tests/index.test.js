@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { FormattedMessage } from 'react-intl';
 
-import A from 'components/A';
+import A from '../../../common/atoms/A';
 import messages from '../messages';
 import Footer from '../index';
 

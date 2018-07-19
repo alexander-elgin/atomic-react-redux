@@ -1,4 +1,4 @@
-import NormalA from '../../../../../../components/A';
+import NormalA from '../../../../../../common/atoms/A';
 
 const RepoLink = NormalA.extend`
   height: 100%;

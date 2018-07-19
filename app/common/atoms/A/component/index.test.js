@@ -6,11 +6,11 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import A from '../index';
+import A from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const href = 'http://mxstbr.com/';
+const href = 'http://github.com/';
 const children = (<h1>Test</h1>);
 const renderComponent = (props = {}) => shallow(
   <A href={href} {...props}>

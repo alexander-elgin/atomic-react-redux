@@ -4,7 +4,7 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import LocaleSwitcher from './';
-import LanguageProvider from '../../../../containers/LanguageProvider';
+import LanguageProvider from '../../LanguageProvider';
 
 import reducer from '../../../../state/language/reducer';
 import configureStore from '../../../../utils/store';

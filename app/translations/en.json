@@ -3,6 +3,8 @@
   "boilerplate.organisms.Footer.license.message": "This project is licensed under the MIT license.",
   "boilerplate.organisms.Header.features": "Features",
   "boilerplate.organisms.Header.home": "Home",
+  "boilerplate.organisms.LocaleSwitcher.de": "de",
+  "boilerplate.organisms.LocaleSwitcher.en": "en",
   "boilerplate.pages.FeatureList.css.header": "Features",
   "boilerplate.pages.FeatureList.css.message": "Next generation CSS",
   "boilerplate.pages.FeatureList.feedback.header": "Instant feedback",
@@ -31,7 +33,5 @@
   "boilerplate.pages.Home.UsernameField.atPrefix": "@",
   "boilerplate.pages.Home.UsernameField.showRepositories": "Show Github repositories by",
   "boilerplate.pages.Home.UsernameField.username": "username",
-  "boilerplate.pages.NotFound.header": "Page not found.",
-  "boilerplate.containers.LocaleToggle.de": "de",
-  "boilerplate.containers.LocaleToggle.en": "en"
+  "boilerplate.pages.NotFound.header": "Page not found."
 }

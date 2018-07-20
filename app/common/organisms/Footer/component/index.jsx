@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import A from '../../../atoms/A';
-import LocaleToggle from '../../../../containers/LocaleToggle';
+import LocaleSwitcher from '../../LocaleSwitcher';
 
 import Wrapper from '../Wrapper';
 import messages from './messages';
@@ -14,7 +14,7 @@ function Footer() {
         <FormattedMessage {...messages.licenseMessage} />
       </section>
       <section>
-        <LocaleToggle />
+        <LocaleSwitcher />
       </section>
       <section>
         <FormattedMessage

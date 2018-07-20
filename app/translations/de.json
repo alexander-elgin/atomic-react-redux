@@ -3,6 +3,8 @@
   "boilerplate.organisms.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
   "boilerplate.organisms.Header.features": "Features",
   "boilerplate.organisms.Header.home": "HauptSeite",
+  "boilerplate.organisms.LocaleSwitcher.de": "de",
+  "boilerplate.organisms.LocaleSwitcher.en": "en",
   "boilerplate.pages.FeatureList.css.header": "",
   "boilerplate.pages.FeatureList.css.message": "Die nächste Generation von CSS",
   "boilerplate.pages.FeatureList.feedback.header": "Sofortiges Feedback",
@@ -31,7 +33,5 @@
   "boilerplate.pages.Home.UsernameField.atPrefix": "",
   "boilerplate.pages.Home.UsernameField.showRepositories": "Zeige die Github Repositories von",
   "boilerplate.pages.Home.UsernameField.username": "Benutzername",
-  "boilerplate.pages.NotFound.header": "Seite nicht gefunden.",
-  "boilerplate.containers.LocaleToggle.de": "",
-  "boilerplate.containers.LocaleToggle.en": ""
+  "boilerplate.pages.NotFound.header": "Seite nicht gefunden."
 }

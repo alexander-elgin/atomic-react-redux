@@ -12,7 +12,7 @@ describe('<Option />', () => {
     const defaultEnMessage = 'someContent';
     const message = defineMessages({
       enMessage: {
-        id: 'boilerplate.containers.LocaleToggle.en',
+        id: 'boilerplate.organisms.LocaleSwitcher.en',
         defaultMessage: defaultEnMessage,
       },
     });

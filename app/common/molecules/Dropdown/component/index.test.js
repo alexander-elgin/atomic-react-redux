@@ -13,11 +13,11 @@ describe('<Dropdown />', () => {
     const defaultDeMessage = 'someOtherContent';
     const messages = defineMessages({
       en: {
-        id: 'boilerplate.containers.LocaleToggle.en',
+        id: 'boilerplate.organisms.LocaleSwitcher.en',
         defaultMessage: defaultEnMessage,
       },
       de: {
-        id: 'boilerplate.containers.LocaleToggle.en',
+        id: 'boilerplate.organisms.LocaleSwitcher.en',
         defaultMessage: defaultDeMessage,
       },
     });

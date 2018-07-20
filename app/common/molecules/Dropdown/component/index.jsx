@@ -15,14 +15,14 @@ function Dropdown(props) {
   }
 
   return (
-    <Select value={props.value} onChange={props.onToggle}>
+    <Select value={props.value} onChange={props.onChange}>
       {content}
     </Select>
   );
 }
 
 Dropdown.propTypes = {
-  onToggle: PropTypes.func,
+  onChange: PropTypes.func,
   values: PropTypes.array,
   value: PropTypes.string,
   messages: PropTypes.object,

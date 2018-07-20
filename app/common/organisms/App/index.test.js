@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import Header from 'common/organisms/Header';
 import Footer from 'common/organisms/Footer';
-import App from '../index';
+import App from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 

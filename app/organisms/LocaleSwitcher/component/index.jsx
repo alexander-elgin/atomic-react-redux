@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { appLocales } from '../../../../i18n';
+import { appLocales } from '../../../i18n';
 import Dropdown from '../../../molecules/Dropdown';
 
 import Wrapper from '../Wrapper';

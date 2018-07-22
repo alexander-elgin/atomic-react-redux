@@ -7,7 +7,7 @@ import Enzyme, { shallow } from 'enzyme';
 import { FormattedMessage } from 'react-intl';
 import Adapter from 'enzyme-adapter-react-16';
 
-import H1 from '../../../common/atoms/H1';
+import H1 from '../../../atoms/H1';
 import NotFound from './';
 
 Enzyme.configure({ adapter: new Adapter() });

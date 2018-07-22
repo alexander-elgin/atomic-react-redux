@@ -7,7 +7,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import H1 from '../../../common/atoms/H1';
+import H1 from '../../../atoms/H1';
 import messages from './messages';
 
 export default function NotFound() {

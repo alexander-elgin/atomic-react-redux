@@ -1,9 +1,9 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import H1 from '../../../common/atoms/H1';
-import List from '../../../common/atoms/List';
-import { MetaIntl, TitleIntl } from '../../../common/molecules/Helmet';
+import H1 from '../../../atoms/H1';
+import List from '../../../atoms/List';
+import { MetaIntl, TitleIntl } from '../../../molecules/Helmet';
 
 import Feature from '../Feature';
 import messages from './messages';

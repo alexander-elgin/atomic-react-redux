@@ -3,8 +3,8 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { IntlProvider } from 'react-intl';
 
-import List from '../../../../common/atoms/List';
-import LoadingIndicator from '../../../../common/molecules/LoadingIndicator';
+import List from '../../../../atoms/List';
+import LoadingIndicator from '../../../../molecules/LoadingIndicator';
 
 import RepositoriesList from './';
 

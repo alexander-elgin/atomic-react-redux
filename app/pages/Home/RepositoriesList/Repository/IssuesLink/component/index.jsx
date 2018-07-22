@@ -1,4 +1,4 @@
-import NormalA from '../../../../../../common/atoms/A';
+import NormalA from '../../../../../../atoms/A';
 
 const IssuesLink = NormalA.extend`
   height: 100%;

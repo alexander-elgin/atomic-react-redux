@@ -6,9 +6,9 @@ import { Switch, Route } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 
-import NotFoundPage from '../../../pages/404-NotFound';
-import HomePage from '../../../pages/Home';
-import FeatureListPage from '../../../pages/FeatureList';
+import NotFoundPage from '../../pages/404-NotFound';
+import HomePage from '../../pages/Home';
+import FeatureListPage from '../../pages/FeatureList';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);

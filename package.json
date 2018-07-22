@@ -193,8 +193,10 @@
       "!app/global-styles.js",
       "!app/reducers.js",
       "!app/sagas.js",
+      "!app/atoms/*/index.js",
+      "!app/molecules/*/index.js",
+      "!app/organisms/*/index.js",
       "!app/pages/*/index.{js,jsx}",
-      "!app/common/*/*/index.js",
       "!app/**/*.{story,stories}.{js,jsx}"
     ],
     "coverageThreshold": {

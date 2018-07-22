@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { IntlProvider } from 'react-intl';
 
 import RepositoriesList from '../RepositoriesList';
-import { MetaIntl, TitleIntl } from '../../../common/molecules/Helmet';
+import { MetaIntl, TitleIntl } from '../../../molecules/Helmet';
 import HomePage from './';
 
 Enzyme.configure({ adapter: new Adapter() });

@@ -6,10 +6,10 @@ import { Provider } from 'react-redux';
 import { FormattedMessage, defineMessages } from 'react-intl';
 
 import LanguageProvider from './';
-import configureStore from '../../../../utils/store';
-import reducer from '../../../../state/language/reducer';
+import configureStore from '../../../utils/store';
+import reducer from '../../../state/language/reducer';
 
-import { translationMessages } from '../../../../i18n';
+import { translationMessages } from '../../../i18n';
 
 Enzyme.configure({ adapter: new Adapter() });
 

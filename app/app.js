@@ -18,10 +18,10 @@ import createHistory from 'history/createBrowserHistory';
 import 'sanitize.css/sanitize.css';
 
 // Import root app
-import App from 'common/organisms/App';
+import App from 'organisms/App';
 
 // Import Language Provider
-import LanguageProvider from 'common/organisms/LanguageProvider';
+import LanguageProvider from 'organisms/LanguageProvider';
 
 // Load the favicon, the manifest.json file and the .htaccess file
 /* eslint-disable import/no-webpack-loader-syntax */
@@ -86,7 +86,7 @@ if (module.hot) {
   // Hot reloadable React components and translation json files
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
-  module.hot.accept(['./i18n', 'common/organisms/App'], () => {
+  module.hot.accept(['./i18n', 'organisms/App'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
     render(translationMessages);
   });

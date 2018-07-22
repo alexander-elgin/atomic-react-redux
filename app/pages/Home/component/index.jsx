@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import H2 from '../../../common/atoms/H2';
-import { MetaIntl, TitleIntl } from '../../../common/molecules/Helmet';
+import H2 from '../../../atoms/H2';
+import { MetaIntl, TitleIntl } from '../../../molecules/Helmet';
 
 import RepositoriesList from '../RepositoriesList';
 import UsernameField from '../UsernameField';

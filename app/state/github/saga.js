@@ -4,14 +4,19 @@ import { LOAD_REPOS } from './constants';
 import { setRepositories, setLoadRepositoriesError } from './actions';
 import { resetLoading } from '../loading/actions';
 
-import request from '../../utils/request';
+import { get } from '../../utils/request';
 import { makeSelectCurrentUsername } from './selectors';
 
 export function* getRepositories() {
   const username = yield select(makeSelectCurrentUsername());
 
+  const params = {
+    type: 'all',
+    sort: 'updated',
+  };
+
   try {
-    const repositories = yield call(request, `https://api.github.com/users/${username}/repos?type=all&sort=updated`);
+    const repositories = yield call(get, `/users/${username}/repos`, params, 'https://api.github.com');
     yield put(setRepositories(repositories, username));
   } catch (err) {
     yield put(setLoadRepositoriesError(err));
@@ -20,6 +25,6 @@ export function* getRepositories() {
   }
 }
 
-export default function* githubData() {
+export default function* rootSaga() {
   yield takeLatest(LOAD_REPOS, getRepositories);
 }

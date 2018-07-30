@@ -1,80 +1,44 @@
-/**
- * Test the request function
- */
+import { get, post, put, remove } from './';
+import { apiBaseUrl as defaultBaseUrl } from '../../env';
 
-import request from './';
+jest.mock('./base', () => ({
+  extractJson: (responseData) => {
+    const result = responseData;
+    result.jsonExtracted = true;
+    return result;
+  },
+  submitRequest: (url, method, headers, payload) => ({ url, method, headers, payload }),
+}));
 
-describe('request', () => {
-  // Before each test, stub the fetch function
-  beforeEach(() => {
-    window.fetch = jest.fn();
-  });
-
-  describe('stubbing successful response', () => {
-    // Before each test, pretend we got a successful response
-    beforeEach(() => {
-      const res = new Response('{"hello":"world"}', {
-        status: 200,
-        headers: {
-          'Content-type': 'application/json',
-        },
-      });
-
-      window.fetch.mockReturnValue(Promise.resolve(res));
+const checkRequest = (requestName, request, method, headers, path, customBaseUrl, payload, emptyPayload, finalPath) => {
+  describe(`#${requestName}`, () => {
+    describe('default base URL with empty payload', () => {
+      it(`extracts JSON from a response of the ${method} request`, () => expect(request(path, {})).toEqual({
+        url: defaultBaseUrl + path,
+        method,
+        headers,
+        payload: (emptyPayload ? undefined : {}),
+        jsonExtracted: true,
+      }));
     });
 
-    it('should format the response correctly', (done) => {
-      request('/thisurliscorrect')
-        .catch(done)
-        .then((json) => {
-          expect(json.hello).toBe('world');
-          done();
+    describe('custom base URL with payload', () => {
+      it(`extracts JSON from a response of the ${method} request`, () => {
+        expect(request(path, payload, customBaseUrl)).toEqual({
+          url: customBaseUrl + (finalPath === undefined ? path : finalPath),
+          method,
+          headers,
+          payload: (emptyPayload ? undefined : payload),
+          jsonExtracted: true,
         });
-    });
-  });
-
-  describe('stubbing 204 response', () => {
-    // Before each test, pretend we got a successful response
-    beforeEach(() => {
-      const res = new Response('', {
-        status: 204,
-        statusText: 'No Content',
       });
-
-      window.fetch.mockReturnValue(Promise.resolve(res));
-    });
-
-    it('should return null on 204 response', (done) => {
-      request('/thisurliscorrect')
-        .catch(done)
-        .then((json) => {
-          expect(json).toBeNull();
-          done();
-        });
     });
   });
+};
 
-  describe('stubbing error response', () => {
-    // Before each test, pretend we got an unsuccessful response
-    beforeEach(() => {
-      const res = new Response('', {
-        status: 404,
-        statusText: 'Not Found',
-        headers: {
-          'Content-type': 'application/json',
-        },
-      });
+const path = '/users';
 
-      window.fetch.mockReturnValue(Promise.resolve(res));
-    });
-
-    it('should catch errors', (done) => {
-      request('/thisdoesntexist')
-        .catch((err) => {
-          expect(err.response.status).toBe(404);
-          expect(err.response.statusText).toBe('Not Found');
-          done();
-        });
-    });
-  });
-});
+checkRequest('get', get, 'GET', true, path, 'https//github.com', { type: 'all' }, true, `${path}?type=all`);
+checkRequest('post', post, 'POST', true, '/users', 'https//linkedin.com', { gender: 'male' });
+checkRequest('put', put, 'PUT', true, '/users/2', 'https//facebook.com', { name: 'Alex' });
+checkRequest('remove', remove, 'DELETE', false, '/users/3', 'https//yahoo.com', { id: '123' });

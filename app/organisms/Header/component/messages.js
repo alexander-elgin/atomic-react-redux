@@ -14,4 +14,8 @@ export default defineMessages({
     id: 'boilerplate.organisms.Header.features',
     defaultMessage: 'Features',
   },
+  logo: {
+    id: 'boilerplate.organisms.Header.logo',
+    defaultMessage: 'Logo',
+  },
 });

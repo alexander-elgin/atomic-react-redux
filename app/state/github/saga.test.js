@@ -4,7 +4,7 @@ import { LOAD_REPOS } from './constants';
 import { setRepositories, setLoadRepositoriesError } from './actions';
 import { resetLoading } from '../loading/actions';
 
-import githubData, { getRepositories } from './saga';
+import generateRootSaga, { getRepositories } from './saga';
 
 const username = 'alexander-elgin';
 
@@ -22,23 +22,28 @@ describe('github Saga', () => {
     expect(callDescriptor).toMatchSnapshot();
   });
 
-  it('dispatches the setRepositories action if it fetches the repositories data successfully', () => {
-    const repositories = [
-      {
-        name: 'First repo',
-      },
-      {
-        name: 'Second repo',
-      },
-    ];
-    const putDescriptor = getRepositoriesGenerator.next(repositories).value;
-    expect(putDescriptor).toEqual(put(setRepositories(repositories, username)));
+  describe('the repositories data are fetched successfully', () => {
+    it('dispatches the setRepositories action', () => {
+      const repositories = [
+        {
+          name: 'First repo',
+        },
+        {
+          name: 'Second repo',
+        },
+      ];
+
+      const putDescriptor = getRepositoriesGenerator.next(repositories).value;
+      expect(putDescriptor).toEqual(put(setRepositories(repositories, username)));
+    });
   });
 
-  it('dispatches the setLoadRepositoriesError action if the request fails', () => {
-    const response = new Error('Some error');
-    const putDescriptor = getRepositoriesGenerator.throw(response).value;
-    expect(putDescriptor).toEqual(put(setLoadRepositoriesError(response)));
+  describe('the request fails', () => {
+    it('dispatches the setLoadRepositoriesError action', () => {
+      const response = new Error('Some error');
+      const putDescriptor = getRepositoriesGenerator.throw(response).value;
+      expect(putDescriptor).toEqual(put(setLoadRepositoriesError(response)));
+    });
   });
 
   afterEach(() => {
@@ -47,11 +52,11 @@ describe('github Saga', () => {
   });
 });
 
-describe('githubDataSaga Saga', () => {
-  const githubDataSaga = githubData();
+describe('root saga', () => {
+  const rootSaga = generateRootSaga();
 
   it('should start task to watch for LOAD_REPOS action', () => {
-    const takeLatestDescriptor = githubDataSaga.next().value;
+    const takeLatestDescriptor = rootSaga.next().value;
     expect(takeLatestDescriptor).toEqual(takeLatest(LOAD_REPOS, getRepositories));
   });
 });

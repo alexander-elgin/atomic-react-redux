@@ -32,6 +32,7 @@ module.exports = {
   },
   setupFiles: [
     'raf/polyfill',
+    'jest-localstorage-mock',
   ],
   setupTestFrameworkScriptFile: '<rootDir>/internals/testing/test-bundler.js',
   testRegex: '.*\\.(spec|test)\\.js$',

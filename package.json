@@ -10,7 +10,7 @@
     "npm": ">=3",
     "node": ">=5"
   },
-  "author": "Max Stoiber",
+  "author": "Alex Elgin",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
@@ -49,40 +49,6 @@
     "*.js": "lint:eslint"
   },
   "pre-commit": "lint:staged",
-  "babel": {
-    "plugins": [
-      "styled-components",
-      "transform-decorators-legacy"
-    ],
-    "presets": [
-      [
-        "env",
-        {
-          "modules": false
-        }
-      ],
-      "react",
-      "stage-0"
-    ],
-    "env": {
-      "production": {
-        "only": [
-          "app"
-        ],
-        "plugins": [
-          "transform-react-remove-prop-types",
-          "transform-react-constant-elements",
-          "transform-react-inline-elements"
-        ]
-      },
-      "test": {
-        "plugins": [
-          "transform-es2015-modules-commonjs",
-          "dynamic-import-node"
-        ]
-      }
-    }
-  },
   "eslintConfig": {
     "parser": "babel-eslint",
     "extends": "airbnb",

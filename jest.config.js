@@ -7,6 +7,7 @@ module.exports = {
     '!app/global-styles.js',
     '!app/reducers.js',
     '!app/sagas.js',
+    '!app/env/index.js',
     '!app/atoms/*/index.js',
     '!app/molecules/*/index.js',
     '!app/organisms/*/index.js',

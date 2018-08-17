@@ -22,16 +22,30 @@ describe('loadingReducer', () => {
   });
 
   describe('#setLoading', () => {
-    it('sets the loading flag', () => {
-      const expectedResult = state.set('anticipantsNumber', 1);
-      expect(loadingReducer(state, setLoading())).toEqual(expectedResult);
+    it('increases the anticipants number', () => {
+      expect(loadingReducer(state, setLoading())).toEqual(state.set('anticipantsNumber', 1));
     });
   });
 
   describe('#resetLoading', () => {
-    it('resets the loading flag', () => {
-      const expectedResult = state.set('anticipantsNumber', 0);
-      expect(loadingReducer(state, resetLoading())).toEqual(expectedResult);
+    let actualResult;
+
+    describe('anticipants number is equal to 0', () => {
+      it('keeps the anticipants number unchanged', () => {
+        actualResult = loadingReducer(state, resetLoading());
+      });
     });
+
+    describe('anticipants number is more than 0', () => {
+      beforeEach(() => {
+        state = fromJS({ anticipantsNumber: 1 });
+      });
+
+      it('dereases the anticipants number', () => {
+        actualResult = loadingReducer(state, resetLoading());
+      });
+    });
+
+    afterEach(() => expect(actualResult).toEqual(fromJS({ anticipantsNumber: 0 })));
   });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Card, CardText } from 'material-ui/Card';
+import { CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TextField } from 'redux-form-material-ui';
 import { Field } from 'redux-form/immutable';
@@ -11,30 +11,28 @@ import Error from '../../../atoms/Error'
 import messages from './messages';
 
 const SignInForm = ({ error, intl, handleSubmit, onSubmit }) => (
-  <Card className="container">
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h2 className="card-heading">
-        <FormattedMessage {...messages.signIn} />
-      </h2>
-      <Error>{error}</Error>
+  <form onSubmit={handleSubmit(onSubmit)}>
+    <h2 className="card-heading">
+      <FormattedMessage {...messages.signIn} />
+    </h2>
+    <Error>{error}</Error>
 
-      <div className="field-line">
-        <Field component={TextField} floatingLabelText={intl.formatMessage(messages.email)} name="email" type="email" />
-      </div>
+    <div className="field-line">
+      <Field component={TextField} floatingLabelText={intl.formatMessage(messages.email)} name="email" type="email" />
+    </div>
 
-      <div className="field-line">
-        <Field component={TextField} floatingLabelText={intl.formatMessage(messages.password)} name="password" type="password" />
-      </div>
+    <div className="field-line">
+      <Field component={TextField} floatingLabelText={intl.formatMessage(messages.password)} name="password" type="password" />
+    </div>
 
-      <div className="button-line">
-        <RaisedButton type="submit" label={intl.formatMessage(messages.signIn)} primary />
-      </div>
+    <div className="button-line">
+      <RaisedButton type="submit" label={intl.formatMessage(messages.signIn)} backgroundColor="#41ADDD" labelColor="#ffffff" />
+    </div>
 
-      <CardText>
-        <FormattedMessage {...messages.noAccount} /> <Link to={'/signup'}><FormattedMessage {...messages.signUp} /></Link>
-      </CardText>
-    </form>
-  </Card>
+    <CardText>
+      <FormattedMessage {...messages.noAccount} /> <Link to={'/signup'}><FormattedMessage {...messages.signUp} /></Link>
+    </CardText>
+  </form>
 );
 
 SignInForm.propTypes = {

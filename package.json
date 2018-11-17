@@ -1,24 +1,18 @@
 {
-  "name": "react-boilerplate",
-  "version": "3.5.0",
+  "name": "react-redux-pwa-boilerplate",
+  "version": "1.0.0",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "git://github.com/alexander-elgin/react-redux-pwa-boilerplate.git"
   },
   "engines": {
     "npm": ">=3",
     "node": ">=5"
   },
-  "author": "Alex Elgin",
+  "author": "Alexander Elgin",
   "license": "MIT",
   "scripts": {
-    "analyze:clean": "rimraf stats.json",
-    "preanalyze": "npm run analyze:clean",
-    "analyze": "node ./internals/scripts/analyze.js",
-    "extract-intl": "babel-node --presets env,stage-0 -- ./internals/scripts/extract-intl.js",
-    "npmcheckversion": "node ./internals/scripts/npmcheckversion.js",
-    "preinstall": "npm run npmcheckversion",
     "postinstall": "npm run build:dll",
     "prebuild": "npm run build:clean",
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
@@ -29,12 +23,6 @@
     "start:production": "npm run test && npm run build && npm run start:prod",
     "start:prod": "cross-env NODE_ENV=production node server",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "presetup": "npm i chalk shelljs",
-    "setup": "node ./internals/scripts/setup.js",
-    "postsetup": "npm run build:dll",
-    "clean": "shjs ./internals/scripts/clean.js",
-    "clean:all": "npm run analyze:clean && npm run test:clean && npm run build:clean",
-    "generate": "plop --plopfile internals/generators/index.js",
     "lint": "npm run lint:js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:js": "npm run lint:eslint -- . ",

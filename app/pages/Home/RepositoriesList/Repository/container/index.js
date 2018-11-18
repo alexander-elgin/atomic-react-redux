@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { makeSelectSelectedUsername } from '../../../../../state/github/selectors';
+import { makeSelectSelectedUsername } from '../../../../../store/github/selectors';
 
 import Repository from '../component';
 

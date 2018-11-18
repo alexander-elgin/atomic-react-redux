@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 
 import { mapDispatchToProps } from './';
 import messages from './messages';
-const actions = require('../../../state/auth/actions');
+const actions = require('../../../store/auth/actions');
 
 describe('SignIn container', () => {
   describe('#mapDispatchToProps', () => {

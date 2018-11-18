@@ -1,6 +1,6 @@
 import { reducer as formReducer } from 'redux-form/immutable';
 
-const context = require.context('./state', true, /reducer\.js$/);
+const context = require.context('./store', true, /reducer\.js$/);
 const reducers = { form: formReducer };
 
 context.keys().forEach((fileRelativePath) => {

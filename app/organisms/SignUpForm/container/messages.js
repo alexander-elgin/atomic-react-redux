@@ -8,7 +8,7 @@ import {
   INVALID_EMAIL,
   INVALID_NAME,
   INVALID_PASSWORD,
-} from '../../../state/auth/constants';
+} from '../../../store/auth/constants';
 
 const messagesData = {};
 

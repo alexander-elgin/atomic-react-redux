@@ -1,5 +1,5 @@
 import { mapDispatchToProps } from './';
-import { signOut } from '../../../state/auth/actions';
+import { signOut } from '../../../store/auth/actions';
 
 describe('SignOut container', () => {
   describe('#mapDispatchToProps', () => {

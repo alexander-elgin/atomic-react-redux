@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 
 import MainPage from './';
 import configureStore from '../../../utils/store';
-import githubReducer from '../../../state/github/reducer';
-import loadingReducer from '../../../state/loading/reducer';
+import githubReducer from '../../../store/github/reducer';
+import loadingReducer from '../../../store/loading/reducer';
 
 const store = configureStore({
   github: githubReducer,

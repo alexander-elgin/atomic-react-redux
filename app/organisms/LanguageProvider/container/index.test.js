@@ -7,7 +7,7 @@ import { FormattedMessage, defineMessages } from 'react-intl';
 
 import LanguageProvider from './';
 import configureStore from '../../../utils/store';
-import reducer from '../../../state/language/reducer';
+import reducer from '../../../store/language/reducer';
 
 import { translationMessages } from '../../../i18n';
 

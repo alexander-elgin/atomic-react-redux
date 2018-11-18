@@ -1,5 +1,5 @@
 import { mapDispatchToProps } from './';
-import { loadRepositories, changeUsername } from '../../../state/github/actions';
+import { loadRepositories, changeUsername } from '../../../store/github/actions';
 
 describe('<Home />', () => {
   describe('#mapDispatchToProps', () => {

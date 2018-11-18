@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { makeSelectIsAuthenticated } from '../../state/auth/selectors';
+import { makeSelectIsAuthenticated } from '../../store/auth/selectors';
 
 const mapStateToProps = createStructuredSelector({
   authenticated: makeSelectIsAuthenticated(),

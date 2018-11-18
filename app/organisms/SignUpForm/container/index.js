@@ -2,8 +2,8 @@ import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form/immutable';
 
-import { SIGN_UP_FORM } from '../../../state/auth/constants';
-import { submitSignUpRequest } from '../../../state/auth/actions';
+import { SIGN_UP_FORM } from '../../../store/auth/constants';
+import { submitSignUpRequest } from '../../../store/auth/actions';
 
 import SignUpForm from '../component';
 import messages from './messages';

@@ -6,7 +6,7 @@ import {
   FORM_SUBMISSION_FAILED,
   INCORRECT_CREDENTIALS,
   INVALID_EMAIL,
-} from '../../../state/auth/constants';
+} from '../../../store/auth/constants';
 
 const messagesData = {};
 

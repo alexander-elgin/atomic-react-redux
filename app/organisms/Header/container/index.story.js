@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 
 import Header from './';
 import configureStore from '../../../utils/store';
-import authReducer from '../../../state/auth/reducer';
-import { setSignInData, signOut } from '../../../state/auth/actions';
+import authReducer from '../../../store/auth/reducer';
+import { setSignInData, signOut } from '../../../store/auth/actions';
 
 const store = configureStore({
   auth: authReducer,

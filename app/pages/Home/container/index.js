@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { changeUsername, loadRepositories } from '../../../state/github/actions';
-import { setLoading } from '../../../state/loading/actions';
-import { makeSelectError, makeSelectRepositories, makeSelectCurrentUsername } from '../../../state/github/selectors';
-import { makeSelectLoading } from '../../../state/loading/selectors';
+import { changeUsername, loadRepositories } from '../../../store/github/actions';
+import { makeSelectError, makeSelectRepositories, makeSelectCurrentUsername } from '../../../store/github/selectors';
+import { setLoading } from '../../../store/loading/actions';
+import { makeSelectLoading } from '../../../store/loading/selectors';
 
 import HomePageComponent from '../component';
 

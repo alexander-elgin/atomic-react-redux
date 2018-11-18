@@ -9,7 +9,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import SignInForm from './';
 import configureStore from '../../../utils/store';
-import authReducer from '../../../state/auth/reducer';
+import authReducer from '../../../store/auth/reducer';
 
 const store = configureStore({
   auth: authReducer,

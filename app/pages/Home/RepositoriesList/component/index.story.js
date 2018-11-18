@@ -5,8 +5,8 @@ import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 
 import configureStore from '../../../../utils/store';
-import { setRepositories } from '../../../../state/github/actions';
-import reducer from '../../../../state/github/reducer';
+import { setRepositories } from '../../../../store/github/actions';
+import reducer from '../../../../store/github/reducer';
 
 import RepositoriesList from './';
 

@@ -1,5 +1,5 @@
 import { mapDispatchToProps, mapStateToProps } from './';
-import { changeLocale } from '../../../state/language/actions';
+import { changeLocale } from '../../../store/language/actions';
 
 jest.mock('reselect', () => ({
   createSelector: (uselessSelector, localeSelector) => localeSelector,

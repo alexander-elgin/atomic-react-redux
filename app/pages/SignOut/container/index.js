@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { signOut } from '../../../state/auth/actions';
+import { signOut } from '../../../store/auth/actions';
 
 import SignOut from '../component';
 

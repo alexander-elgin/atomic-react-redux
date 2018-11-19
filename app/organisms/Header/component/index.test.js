@@ -5,7 +5,6 @@ import { FormattedMessage, IntlProvider } from 'react-intl';
 
 import Header from './';
 
-import A from '../A';
 import HeaderLink from '../HeaderLink';
 import Img from '../Img';
 import LinksBlock from '../LinksBlock';
@@ -31,22 +30,10 @@ describe('<Header />', () => {
     expect(wrapper.find(LinksBlock).first().prop('authenticated')).toEqual(AUTHENTICATED);
   });
 
-  describe('logo', () => {
-    let logoLink;
-
-    beforeEach(() => {
-      logoLink = wrapper.find(A).first();
-    });
-
-    it('refers the logo to the project repository', () => {
-      expect(logoLink.prop('href')).toBe('https://github.com/alexander-elgin/react-redux-passport-boilerplate');
-    });
-
-    it('renders the logo image', () => {
-      const logo = logoLink.find(Img).first();
-      expect(logo.prop('alt')).toBe(logoAltText);
-      expect(logo.prop('src')).toEqual(Banner);
-    });
+  it('renders the logo image', () => {
+    const logo = wrapper.find(Img).first();
+    expect(logo.prop('alt')).toBe(logoAltText);
+    expect(logo.prop('src')).toEqual(Banner);
   });
 
   describe('NavBar', () => {

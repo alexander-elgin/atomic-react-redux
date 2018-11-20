@@ -2,6 +2,17 @@
   "name": "react-redux-pwa-boilerplate",
   "version": "1.0.0",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "keywords": [
+    "react",
+    "redux",
+    "boilerplate",
+    "redux-form",
+    "material-ui",
+    "storybook",
+    "atomic design",
+    "jest",
+    "auth"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/alexander-elgin/react-redux-pwa-boilerplate.git"

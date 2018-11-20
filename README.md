@@ -38,3 +38,5 @@ $ yarn start
 ```sh
 $ yarn test
 ```
+
+Inspired by [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)

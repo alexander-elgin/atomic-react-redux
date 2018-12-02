@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Route, Switch } from 'react-router-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import DefaultTemplate from '../../../templates/default';
 
@@ -20,22 +20,22 @@ import App from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const getMuiTheme = require('material-ui/styles/getMuiTheme');
 const reactIcons = require('react-icons');
+const defaultTheme = require('../defaultTheme');
 
 describe('<App />', () => {
-  const DUMMY_MUI_THEME = { dummyField: 'dummy MUI Theme' };
+  const DUMMY_THEME = { dummyField: 'Dummy Theme' };
   let app;
 
   beforeEach(() => {
-    getMuiTheme.default = jest.fn().mockReturnValue(DUMMY_MUI_THEME);
     reactIcons.IconContext = { Provider: 'iconContextProvider' };
+    defaultTheme.default = DUMMY_THEME;
     app = shallow(<App />);
   });
 
   it('renders Material UI Theme Provider', () => {
     expect(app.type()).toEqual(MuiThemeProvider);
-    expect(app.prop('muiTheme')).toEqual(DUMMY_MUI_THEME);
+    expect(app.prop('theme')).toEqual(DUMMY_THEME);
   });
 
   it('sets the React icons default vertical alignment', () => {

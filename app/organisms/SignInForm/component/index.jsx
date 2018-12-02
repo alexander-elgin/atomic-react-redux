@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
+import { Button, Grid } from '@material-ui/core';
 import { TextField } from 'redux-form-material-ui';
 import { Field } from 'redux-form/immutable';
 import { FormattedMessage, intlShape } from 'react-intl';
@@ -12,26 +11,32 @@ import messages from './messages';
 
 const SignInForm = ({ error, intl, handleSubmit, onSubmit }) => (
   <form onSubmit={handleSubmit(onSubmit)}>
-    <h2 className="card-heading">
+    <h2>
       <FormattedMessage {...messages.signIn} />
     </h2>
     <Error>{error}</Error>
 
-    <div className="field-line">
-      <Field component={TextField} floatingLabelText={intl.formatMessage(messages.email)} name="email" type="email" />
-    </div>
+    <Grid container spacing={24}>
 
-    <div className="field-line">
-      <Field component={TextField} floatingLabelText={intl.formatMessage(messages.password)} name="password" type="password" />
-    </div>
+      <Grid item xs={12}>
+        <Field component={TextField} label={intl.formatMessage(messages.email)} name="email" type="email" />
+      </Grid>
 
-    <div className="button-line">
-      <RaisedButton type="submit" label={intl.formatMessage(messages.signIn)} backgroundColor="#41ADDD" labelColor="#ffffff" />
-    </div>
+      <Grid item xs={12}>
+        <Field component={TextField} label={intl.formatMessage(messages.password)} name="password" type="password" />
+      </Grid>
 
-    <CardText>
-      <FormattedMessage {...messages.noAccount} /> <Link to={'/signup'}><FormattedMessage {...messages.signUp} /></Link>
-    </CardText>
+      <Grid item xs={12}>
+        <Button type="submit" variant="contained" color="primary">
+          <FormattedMessage {...messages.signIn} />
+        </Button>
+      </Grid>
+
+      <Grid item xs={12}>
+        <FormattedMessage {...messages.noAccount} /> <Link to={'/signup'}><FormattedMessage {...messages.signUp} /></Link>
+      </Grid>
+
+    </Grid>
   </form>
 );
 

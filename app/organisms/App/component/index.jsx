@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import 'typeface-roboto';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { IconContext } from "react-icons";
 
 import DefaultTemplate from '../../../templates/default';
+import defaultTheme from '../defaultTheme';
 
 import NotFoundPage from '../../../pages/404-NotFound';
 import HomePage from '../../../pages/Home';
@@ -18,7 +19,7 @@ import AuthorizedRoute from '../AuthorizedRoute';
 import UnauthorizedRoute from '../UnauthorizedRoute';
 
 const App = () => (
-  <MuiThemeProvider muiTheme={getMuiTheme()}>
+  <MuiThemeProvider theme={defaultTheme}>
     <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
       <Switch>
         <Route exact path="/" component={ (props) => <DefaultTemplate {...props} component={HomePage} /> } />

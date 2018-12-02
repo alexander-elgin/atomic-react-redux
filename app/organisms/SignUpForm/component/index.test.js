@@ -4,10 +4,9 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import { Link } from 'react-router-dom';
 
-import { CardText } from 'material-ui/Card';
 import { TextField } from 'redux-form-material-ui';
 import { Field } from 'redux-form/immutable';
-import RaisedButton from 'material-ui/RaisedButton';
+import { Button, Grid } from '@material-ui/core';
 
 import SignUpForm from './';
 
@@ -44,7 +43,6 @@ describe('<SignUpForm />', () => {
 
     it('renders the form header', () => {
       expect(header.type()).toBe('h2');
-      expect(header.prop('className')).toBe('card-heading');
       checkTranslation(header.childAt(0), 'boilerplate.shared.Auth.signUp', 'Sign up');
     });
   });
@@ -63,18 +61,29 @@ describe('<SignUpForm />', () => {
   });
 
   describe('form elements', () => {
+    let container;
     let fieldWrapper;
     let field;
+
+    const checkWrapper = (wrapper) => {
+      expect(wrapper.type()).toEqual(Grid);
+      expect(wrapper.prop('xs')).toBe(12);
+      expect(Object.keys(wrapper.props()).includes('item')).toBe(true);
+    };
+
+    beforeEach(() => {
+      container = form.childAt(2);
+    });
 
     describe('fields', () => {
       describe('name', () => {
         beforeEach(() => {
-          fieldWrapper = form.childAt(2);
+          fieldWrapper = container.childAt(0);
           field = fieldWrapper.childAt(0);
         });
 
         it('renders the field', () => {
-          expect(field.prop('floatingLabelText')).toBe('Name');
+          expect(field.prop('label')).toBe('Name');
           expect(field.prop('name')).toBe('name');
           expect(field.prop('type')).toBe('text');
         });
@@ -82,12 +91,12 @@ describe('<SignUpForm />', () => {
 
       describe('email', () => {
         beforeEach(() => {
-          fieldWrapper = form.childAt(3);
+          fieldWrapper = container.childAt(1);
           field = fieldWrapper.childAt(0);
         });
 
         it('renders the field', () => {
-          expect(field.prop('floatingLabelText')).toBe('Email');
+          expect(field.prop('label')).toBe('Email');
           expect(field.prop('name')).toBe('email');
           expect(field.prop('type')).toBe('email');
         });
@@ -95,12 +104,12 @@ describe('<SignUpForm />', () => {
 
       describe('password', () => {
         beforeEach(() => {
-          fieldWrapper = form.childAt(4);
+          fieldWrapper = container.childAt(2);
           field = fieldWrapper.childAt(0);
         });
 
         it('renders the field', () => {
-          expect(field.prop('floatingLabelText')).toBe('Password');
+          expect(field.prop('label')).toBe('Password');
           expect(field.prop('name')).toBe('password');
           expect(field.prop('type')).toBe('password');
         });
@@ -109,30 +118,29 @@ describe('<SignUpForm />', () => {
       afterEach(() => {
         expect(field.type()).toEqual(Field);
         expect(field.prop('component')).toEqual(TextField);
-        expect(fieldWrapper.prop('className')).toBe('field-line');
+        checkWrapper(fieldWrapper);
       });
     });
 
     describe('button', () => {
       beforeEach(() => {
-        fieldWrapper = form.childAt(5);
+        fieldWrapper = container.childAt(3);
         field = fieldWrapper.childAt(0);
       });
 
       it('renders the field', () => {
-        expect(field.type()).toEqual(RaisedButton);
-        expect(field.prop('label')).toBe('Sign up');
+        expect(field.type()).toEqual(Button);
+        checkTranslation(field.childAt(0), 'boilerplate.shared.Auth.signUp', 'Sign up');
         expect(field.prop('type')).toBe('submit');
+        expect(field.prop('variant')).toBe('contained');
       });
 
-      afterEach(() => {
-        expect(fieldWrapper.prop('className')).toBe('button-line');
-      });
+      afterEach(() => checkWrapper(fieldWrapper));
     });
 
     describe('link', () => {
       beforeEach(() => {
-        fieldWrapper = form.childAt(6);
+        fieldWrapper = container.childAt(4);
         field = fieldWrapper.find(Link).first();
       });
 
@@ -141,8 +149,7 @@ describe('<SignUpForm />', () => {
         checkTranslation(field.childAt(0), 'boilerplate.shared.Auth.signIn', 'Sign in');
       });
 
-      it('renders the link wrapper', () => {
-        expect(fieldWrapper.type()).toEqual(CardText);
+      it('renders the link hint text', () => {
         checkTranslation(fieldWrapper.childAt(0), 'boilerplate.organisms.SignUpForm.alreadyHaveAccount',
           'Already have an account?');
       });

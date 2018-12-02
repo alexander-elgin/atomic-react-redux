@@ -5,8 +5,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import { Link } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 
-import { CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
+import { CardText } from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
 import { TextField } from 'redux-form-material-ui';
 import { Field } from 'redux-form/immutable';
 
@@ -110,9 +110,10 @@ describe('<SignInForm />', () => {
       });
 
       it('renders the field', () => {
-        expect(field.type()).toEqual(RaisedButton);
+        expect(field.type()).toEqual(Button);
         expect(field.prop('label')).toBe('Sign in');
         expect(field.prop('type')).toBe('submit');
+        expect(field.prop('variant')).toBe('contained');
       });
 
       afterEach(() => {

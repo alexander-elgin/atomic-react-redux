@@ -4,10 +4,10 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import { Link } from 'react-router-dom';
 
-import { CardText } from 'material-ui/Card';
+import { CardText } from '@material-ui/core/Card';
 import { TextField } from 'redux-form-material-ui';
 import { Field } from 'redux-form/immutable';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 
 import SignUpForm from './';
 
@@ -120,9 +120,10 @@ describe('<SignUpForm />', () => {
       });
 
       it('renders the field', () => {
-        expect(field.type()).toEqual(RaisedButton);
+        expect(field.type()).toEqual(Button);
         expect(field.prop('label')).toBe('Sign up');
         expect(field.prop('type')).toBe('submit');
+        expect(field.prop('variant')).toBe('contained');
       });
 
       afterEach(() => {

@@ -5,9 +5,6 @@ import { FormattedMessage } from 'react-intl';
 import H2 from '../../../atoms/H2';
 import { MetaIntl, TitleIntl } from '../../../molecules/Helmet';
 
-import RepositoriesList from '../RepositoriesList';
-import UsernameField from '../UsernameField';
-
 import messages from './messages';
 
 import styles from './styles.scss';
@@ -23,13 +20,6 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   }
 
   render() {
-    const { loading, error, repos } = this.props;
-    const repositoriesListProps = {
-      loading,
-      error,
-      repos,
-    };
-
     return (
       <article>
         <TitleIntl {...messages.metaTitle} />
@@ -47,13 +37,6 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
             <H2>
               <FormattedMessage {...messages.trymeHeader} />
             </H2>
-            <form onSubmit={this.props.onSubmitForm} className={styles.form}>
-              <UsernameField
-                onChange={this.props.onChangeUsername}
-                value={this.props.username}
-              />
-            </form>
-            <RepositoriesList {...repositoriesListProps} />
           </section>
         </div>
       </article>

@@ -9,6 +9,7 @@ import LoadingIndicator from '../../../molecules/LoadingIndicator';
 class MoviesList extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
     this.props.fetch();
+    this.props.fetchGenres();
   }
 
   render() {
@@ -33,6 +34,7 @@ class MoviesList extends React.Component { // eslint-disable-line react/prefer-s
 
 MoviesList.propTypes = {
   fetch: PropTypes.func,
+  fetchGenres: PropTypes.func,
   movies: PropTypes.array,
   page: PropTypes.number,
   totalPages: PropTypes.number,

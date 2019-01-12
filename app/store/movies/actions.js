@@ -1,11 +1,19 @@
 import {
+  FETCH_GENRES,
+  FETCH_GENRES_SUCCESS,
   FETCH_MOVIES,
-  FETCH_MOVIES_ERROR,
   FETCH_MOVIES_SUCCESS,
   RESET,
+  SET_ERROR,
   SET_QUERY,
   SET_TOTAL_PAGES,
 } from './constants';
+
+export function fetchGenres() {
+  return {
+    type: FETCH_GENRES,
+  };
+}
 
 export function fetchMovies() {
   return {
@@ -15,8 +23,15 @@ export function fetchMovies() {
 
 export function setError(error) {
   return {
-    type: FETCH_MOVIES_ERROR,
+    type: SET_ERROR,
     error,
+  };
+}
+
+export function setGenres(genres) {
+  return {
+    type: FETCH_GENRES_SUCCESS,
+    genres,
   };
 }
 

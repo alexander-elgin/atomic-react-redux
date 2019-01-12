@@ -7,6 +7,11 @@ const makeSelectError = () => createSelector(
   (moviesState) => moviesState.get('error')
 );
 
+const makeSelectGenres = () => createSelector(
+  selectMovies,
+  (moviesState) => moviesState.get('genres').toJS()
+);
+
 const makeSelectMovies = () => createSelector(
   selectMovies,
   (moviesState) => moviesState.get('movies').toJS()
@@ -31,6 +36,7 @@ const makeSelectTotalPages = () => createSelector(
 export {
   selectMovies,
   makeSelectError,
+  makeSelectGenres,
   makeSelectMovies,
   makeSelectPage,
   makeSelectQuery,

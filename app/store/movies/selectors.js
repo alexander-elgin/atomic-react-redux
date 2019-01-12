@@ -2,25 +2,37 @@ import { createSelector } from 'reselect';
 
 const selectMovies = (state) => state.get('movies');
 
+const makeSelectError = () => createSelector(
+  selectMovies,
+  (moviesState) => moviesState.get('error')
+);
+
+const makeSelectMovies = () => createSelector(
+  selectMovies,
+  (moviesState) => moviesState.get('movies').toJS()
+);
+
 const makeSelectPage = () => createSelector(
   selectMovies,
   (moviesState) => moviesState.get('page')
 );
 
-const makeSelectError = () => createSelector(
+const makeSelectQuery = () => createSelector(
   selectMovies,
-  (repositoriesDataState) => repositoriesDataState.get('error')
+  (moviesState) => moviesState.get('query')
 );
 
-const makeSelectMovies = () => createSelector(
+const makeSelectTotalPages = () => createSelector(
   selectMovies,
-  (repositoriesDataState) => repositoriesDataState.get('movies').toJS()
+  (moviesState) => moviesState.get('totalPages')
 );
 
 
 export {
   selectMovies,
-  makeSelectPage,
   makeSelectError,
   makeSelectMovies,
+  makeSelectPage,
+  makeSelectQuery,
+  makeSelectTotalPages,
 };

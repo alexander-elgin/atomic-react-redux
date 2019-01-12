@@ -1,20 +1,20 @@
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { fetchMovies } from '../../../store/movies/actions';
-import { makeSelectPage, makeSelectTotalPages } from '../../../store/movies/selectors';
+import { fetchGenres } from '../../../store/movies/actions';
+import { makeSelectGenres, makeSelectMovies } from '../../../store/movies/selectors';
 
 import MoviesListComponent from '../component';
 
 export function mapDispatchToProps(dispatch) {
   return {
-    fetch: () => dispatch(fetchMovies()),
+    fetchGenres: () => dispatch(fetchGenres()),
   };
 }
 
 const mapStateToProps = createStructuredSelector({
-  page: makeSelectPage(),
-  totalPages: makeSelectTotalPages(),
+  genres: makeSelectGenres(),
+  movies: makeSelectMovies(),
 });
 
 const MoviesListContainer = connect(mapStateToProps, mapDispatchToProps)(MoviesListComponent);

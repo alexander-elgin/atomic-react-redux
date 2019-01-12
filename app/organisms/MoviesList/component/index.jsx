@@ -19,7 +19,7 @@ class MoviesList extends React.Component { // eslint-disable-line react/prefer-s
         hasMore={this.props.page < this.props.totalPages}
         loader={<LoadingIndicator />}
       >
-        <RawMoviesList />
+        <RawMoviesList movies={this.props.movies} />
       </InfiniteScroll>
     );
   }
@@ -27,6 +27,7 @@ class MoviesList extends React.Component { // eslint-disable-line react/prefer-s
 
 MoviesList.propTypes = {
   fetch: PropTypes.func,
+  movies: PropTypes.array,
   page: PropTypes.number,
   totalPages: PropTypes.number,
 };

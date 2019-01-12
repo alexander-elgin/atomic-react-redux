@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
+import ErrorNotification from '../../../molecules/ErrorNotification';
 import Header from '../../../organisms/Header';
 
 const AppWrapper = styled.div`
@@ -26,6 +27,7 @@ const Template = ({ component, ...rest }) => {
         </Helmet>
         <Content {...rest} />
       </AppWrapper>
+      <ErrorNotification />
     </div>
   );
 };

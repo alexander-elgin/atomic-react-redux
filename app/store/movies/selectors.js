@@ -4,7 +4,7 @@ const selectMovies = (state) => state.get('movies');
 
 const makeSelectError = () => createSelector(
   selectMovies,
-  (moviesState) => moviesState.get('error')
+  (moviesState) => moviesState.get('error') !== null
 );
 
 const makeSelectGenres = () => createSelector(

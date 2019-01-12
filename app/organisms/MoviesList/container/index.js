@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { fetchMovies } from '../../../store/movies/actions';
-import { makeSelectPage, makeSelectTotalPages } from '../../../store/movies/selectors';
+import { makeSelectMovies, makeSelectPage, makeSelectTotalPages } from '../../../store/movies/selectors';
 
 import MoviesListComponent from '../component';
 
@@ -13,6 +13,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = createStructuredSelector({
+  movies: makeSelectMovies(),
   page: makeSelectPage(),
   totalPages: makeSelectTotalPages(),
 });

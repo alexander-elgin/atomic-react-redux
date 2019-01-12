@@ -4,11 +4,11 @@ import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
+  padding: 0 8px;
   flex-direction: column;
 `;
 
@@ -17,8 +17,8 @@ const Template = ({ component, ...rest }) => {
 
   return (
     <AppWrapper>
-      <Helmet titleTemplate="%s - Pokemons" defaultTitle="Pokemons">
-        <meta name="description" content="Pokemons application" />
+      <Helmet titleTemplate="%s - Movies" defaultTitle="Movies">
+        <meta name="description" content="Movies application" />
       </Helmet>
       <Content {...rest} />
     </AppWrapper>

@@ -89,7 +89,12 @@ class SearchAppBar extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+            <IconButton
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={() => this.props.history.push('/')}
+            >
               <HomeIcon />
             </IconButton>
             <div className={classes.grow} />

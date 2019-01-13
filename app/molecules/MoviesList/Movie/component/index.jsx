@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { mediaBaseUrl } from '../../../../env';
 import styles from './styles.scss';
 
-const Movie = ({ genres, genre_ids, poster_path, title }) => (
-  <div>
+const Movie = ({ history, genres, genre_ids, id, poster_path, title }) => (
+  <div className={styles.movie} onClick={() => history.push(`/movie/${id}`)}>
     <h5>{ title }</h5>
     <img src={`${mediaBaseUrl}/w185${poster_path}`} />
     <div className={styles['genre-list']}>

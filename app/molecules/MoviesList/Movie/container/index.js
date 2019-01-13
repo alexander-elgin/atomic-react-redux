@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { withRouter } from 'react-router-dom';
 
 import { makeSelectGenres } from '../../../../store/movies/selectors';
 
@@ -9,5 +10,5 @@ const mapStateToProps = createStructuredSelector({
   genres: makeSelectGenres(),
 });
 
-const MovieContainer = connect(mapStateToProps, null)(MovieComponent);
+const MovieContainer = connect(mapStateToProps, null)(withRouter(MovieComponent));
 export default MovieContainer;

@@ -1,5 +1,7 @@
 # React Redux PWA boilerplate
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ded2a9b8d35b432884de4f66dccf48cd)](https://app.codacy.com/app/alexander-elgin/atomic-react?utm_source=github.com&utm_medium=referral&utm_content=alexander-elgin/atomic-react&utm_campaign=Badge_Grade_Dashboard)
+
 A front-end boilerplate based on React & Redux
 
 ## Main Features

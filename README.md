@@ -57,11 +57,11 @@ $ yarn test
 
 [atomic-design-url]: http://bradfrost.com/blog/post/atomic-web-design/
 [backend-url]: https://github.com/alexander-elgin/express-passport-boilerplate
-[package-url]: https://npmjs.com/package/react-redux-pwa-boilerplate
+[package-url]: https://npmjs.com/package/atomic-react
 
-[package-info]: https://nodei.co/npm/react-redux-pwa-boilerplate.png
+[package-info]: https://nodei.co/npm/atomic-react.png
 
-[node]: https://img.shields.io/node/v/react-redux-pwa-boilerplate.svg
+[node]: https://img.shields.io/node/v/atomic-react.svg
 
 [deps]: https://david-dm.org/alexander-elgin/atomic-react.svg
 [deps-url]: https://david-dm.org/alexander-elgin/atomic-react

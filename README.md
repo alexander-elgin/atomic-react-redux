@@ -57,23 +57,23 @@ $ yarn test
 
 [atomic-design-url]: http://bradfrost.com/blog/post/atomic-web-design/
 [backend-url]: https://github.com/alexander-elgin/express-passport-boilerplate
-[package-url]: https://npmjs.com/package/atomic-react
+[package-url]: https://npmjs.com/package/atomic-react-redux
 
-[package-info]: https://nodei.co/npm/atomic-react.png
+[package-info]: https://nodei.co/npm/atomic-react-redux.png
 
-[node]: https://img.shields.io/node/v/atomic-react.svg
+[node]: https://img.shields.io/node/v/atomic-react-redux.svg
 
-[deps]: https://david-dm.org/alexander-elgin/atomic-react.svg
-[deps-url]: https://david-dm.org/alexander-elgin/atomic-react
+[deps]: https://david-dm.org/alexander-elgin/atomic-react-redux.svg
+[deps-url]: https://david-dm.org/alexander-elgin/atomic-react-redux
 
-[build-status]: https://img.shields.io/travis/alexander-elgin/atomic-react.svg
-[build-status-url]: https://travis-ci.org/alexander-elgin/atomic-react
+[build-status]: https://img.shields.io/travis/alexander-elgin/atomic-react-redux.svg
+[build-status-url]: https://travis-ci.org/alexander-elgin/atomic-react-redux
 
 [code-quality]: https://api.codacy.com/project/badge/Grade/27011bc53e004590921e1839a0b2707d
-[code-quality-url]: https://www.codacy.com/app/alexander-elgin/atomic-react
+[code-quality-url]: https://www.codacy.com/app/alexander-elgin/atomic-react-redux
 
-[cover]: https://coveralls.io/repos/github/alexander-elgin/atomic-react/badge.svg
-[cover-url]: https://coveralls.io/github/alexander-elgin/atomic-react
+[cover]: https://coveralls.io/repos/github/alexander-elgin/atomic-react-redux/badge.svg
+[cover-url]: https://coveralls.io/github/alexander-elgin/atomic-react-redux
 
 [license]: https://img.shields.io/npm/l/tailwindcss.svg
 [license-url]: ./LICENSE

@@ -1,5 +1,5 @@
 {
-  "name": "atomic-react",
+  "name": "atomic-react-redux",
   "version": "1.0.0",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
   "keywords": [
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/alexander-elgin/atomic-react.git"
+    "url": "git://github.com/alexander-elgin/atomic-react-redux.git"
   },
   "engines": {
     "npm": ">=3",

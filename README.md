@@ -1,4 +1,4 @@
-# Atomic React
+# Atomic React Redux
 
 <p align="center">
   <img alt="atomic design" src="https://cdn-images-1.medium.com/max/1600/1*fBFPvh-Y-l4pXmRTECCsPw.png">
@@ -75,5 +75,5 @@ $ yarn test
 [cover]: https://coveralls.io/repos/github/alexander-elgin/atomic-react-redux/badge.svg
 [cover-url]: https://coveralls.io/github/alexander-elgin/atomic-react-redux
 
-[license]: https://img.shields.io/npm/l/tailwindcss.svg
+[license]: https://img.shields.io/github/license/alexander-elgin/atomic-react-redux.svg
 [license-url]: ./LICENSE

@@ -49,6 +49,8 @@ import configureStore from './utils/store';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
+import { basePath } from './env';
+
 // Import CSS reset and Global Styles
 import './global-styles';
 
@@ -65,7 +67,7 @@ openSansObserver.load().then(() => {
 
 // Create redux store with history
 const initialState = {};
-const history = createHistory();
+const history = createHistory({ basename: basePath });
 const store = configureStore(reducers, initialState, sagas, history);
 const MOUNT_NODE = document.getElementById('app');
 

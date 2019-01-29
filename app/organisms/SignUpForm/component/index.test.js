@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import faker from 'faker';
 
 import { Link } from 'react-router-dom';
 
@@ -29,7 +30,7 @@ describe('<SignUpForm />', () => {
   });
 
   it('sets the form submit handler', () => {
-    const data = { name: 'alexander-elgin', email: 'sascha.elgin@gmail.com' };
+    const data = { name: faker.internet.userName(), email: faker.internet.email() };
     form.prop('onSubmit')(data);
     expect(spies.onSubmit).toBeCalledWith(data);
   });

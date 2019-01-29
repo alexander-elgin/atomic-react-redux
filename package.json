@@ -141,6 +141,7 @@
     "eslint-plugin-redux-saga": "0.3.0",
     "eventsource-polyfill": "0.9.6",
     "exports-loader": "0.6.4",
+    "faker": "^4.1.0",
     "file-loader": "0.11.1",
     "html-loader": "0.4.5",
     "html-webpack-plugin": "2.29.0",

@@ -1,6 +1,7 @@
+import styled from 'styled-components';
 import NormalA from '../../../../../../atoms/A';
 
-const IssuesLink = NormalA.extend`
+const IssuesLink = styled(NormalA)`
   height: 100%;
   color: black;
   display: flex;

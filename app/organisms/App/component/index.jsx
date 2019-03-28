@@ -17,6 +17,7 @@ import SignUpPage from '../../../pages/SignUp';
 
 import AuthorizedRoute from '../AuthorizedRoute';
 import UnauthorizedRoute from '../UnauthorizedRoute';
+import GlobalStyles from '../global-styles';
 
 const App = () => (
   <MuiThemeProvider theme={defaultTheme}>
@@ -29,6 +30,7 @@ const App = () => (
         <Route path="/signout" component={ (props) => <DefaultTemplate {...props} component={SignOutPage} /> } />
         <Route path="" component={ (props) => <DefaultTemplate {...props} component={NotFoundPage} /> } />
       </Switch>
+      <GlobalStyles />
     </IconContext.Provider>
   </MuiThemeProvider>
 );

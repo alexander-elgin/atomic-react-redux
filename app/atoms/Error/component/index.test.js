@@ -14,19 +14,5 @@ const renderComponent = (props = {}) => shallow(
 );
 
 describe('<Error />', () => {
-  it('renders a <div> tag', () => {
-    const renderedComponent = renderComponent();
-    expect(renderedComponent.type()).toEqual('div');
-  });
-
-  it('has children', () => {
-    const renderedComponent = renderComponent();
-    expect(renderedComponent.contains(children)).toEqual(true);
-  });
-
-  it('has a className attribute', () => {
-    const className = 'test';
-    const renderedComponent = renderComponent({ className });
-    expect(renderedComponent.find('div').hasClass(className)).toEqual(true);
-  });
+  it('renders children', () => expect(renderComponent().contains(children)).toBe(true));
 });

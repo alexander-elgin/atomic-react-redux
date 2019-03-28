@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Enzyme, { shallow, mount } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import LocaleSwitcher from './';
@@ -30,16 +30,5 @@ describe('LocaleSwitcher component', () => {
       </Provider>
     );
     expect(renderedComponent.contains(<LocaleSwitcher />)).toBe(true);
-  });
-
-  it('should present the default `en` english language option', () => {
-    const renderedComponent = mount(
-      <Provider store={store}>
-        <LanguageProvider messages={translationMessages}>
-          <LocaleSwitcher />
-        </LanguageProvider>
-      </Provider>
-    );
-    expect(renderedComponent.contains(<option value="en">en</option>)).toBe(true);
   });
 });

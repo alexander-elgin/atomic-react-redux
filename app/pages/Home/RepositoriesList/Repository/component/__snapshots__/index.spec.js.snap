@@ -5,14 +5,14 @@ exports[`<Repository /> hides the repository owner name if it matches the curren
   className="wrapper"
 >
   <a
-    className="sc-bwzfXH lkJres"
+    className="component__A-sc-1qxsdu7-0 component__RepoLink-sc-2iw2dp-0 cbLOVz"
     href="https://github.com/alexander-elgin/ta-maxlength"
     target="_blank"
   >
     ta-maxlength
   </a>
   <a
-    className="sc-bdVaJa dxlZAG"
+    className="component__A-sc-1qxsdu7-0 component__IssuesLink-sc-1rshot1-0 ezZxTa"
     href="https://github.com/alexander-elgin/ta-maxlength/issues"
     target="_blank"
   >
@@ -37,14 +37,14 @@ exports[`<Repository /> shows the repository owner name if it does not match the
   className="wrapper"
 >
   <a
-    className="sc-bwzfXH lkJres"
+    className="component__A-sc-1qxsdu7-0 component__RepoLink-sc-2iw2dp-0 cbLOVz"
     href="https://github.com/rasp3175/meetermaid"
     target="_blank"
   >
     rasp3175/meetermaid
   </a>
   <a
-    className="sc-bdVaJa dxlZAG"
+    className="component__A-sc-1qxsdu7-0 component__IssuesLink-sc-1rshot1-0 ezZxTa"
     href="https://github.com/rasp3175/meetermaid/issues"
     target="_blank"
   >

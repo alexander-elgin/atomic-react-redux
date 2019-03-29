@@ -20,7 +20,7 @@ storiesOf('Sign In', module)
     <Provider store={store}>
       <IntlProvider locale="en">
         <BrowserRouter>
-          <MuiThemeProvider muiTheme={defaultTheme}>
+          <MuiThemeProvider theme={defaultTheme}>
             {story()}
           </MuiThemeProvider>
         </BrowserRouter>

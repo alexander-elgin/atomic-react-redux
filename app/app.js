@@ -12,7 +12,7 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import FontFaceObserver from 'fontfaceobserver';
 import { createBrowserHistory as createHistory } from 'history';
 import 'sanitize.css/sanitize.css';
@@ -67,9 +67,9 @@ const render = (messages) => {
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>
-        <Router history={history}>
+        <HashRouter>
           <App />
-        </Router>
+        </HashRouter>
       </LanguageProvider>
     </Provider>,
     MOUNT_NODE

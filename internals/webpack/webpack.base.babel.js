@@ -22,7 +22,7 @@ module.exports = (options) => ({
     fs: 'empty',
   },
   output: Object.assign({ // Compile into js/build.js
-    path: path.resolve(process.cwd(), 'build'),
+    path: path.resolve(process.cwd(), 'cordova/www'),
   }, options.output), // Merge with env dependent settings
   module: {
     rules: [

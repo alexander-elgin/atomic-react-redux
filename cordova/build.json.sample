@@ -1,0 +1,11 @@
+{
+  "android": {
+    "sample": {
+      "keystore": "../keys/key.keystore",
+      "storePassword": "secretpassword",
+      "alias": "CordovaDebug",
+      "password" : "secretpassword",
+      "keystoreType": ""
+    }
+  }
+}

@@ -1,6 +1,9 @@
 # Don't check auto-generated stuff into git
 coverage
 cordova/www
+cordova/build.json
+cordova/package.json
+cordova/package-lock.json
 node_modules
 
 # Cruft

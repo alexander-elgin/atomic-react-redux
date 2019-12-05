@@ -38,6 +38,8 @@ For auth features (back end) you can use
 ## Install
 ```sh
 $ yarn install
+$ cd cordova
+$ cordova platform add android
 ```
 
 ## Launch

@@ -44,7 +44,7 @@ $ cordova platform add android
 
 ## Launch
 ```sh
-$ yarn start
+$ yarn serve:android
 ```
 
 ## Build

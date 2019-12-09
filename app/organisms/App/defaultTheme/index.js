@@ -1,14 +1,15 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import amber from '@material-ui/core/colors/amber';
+import green from '@material-ui/core/colors/green';
+import red from '@material-ui/core/colors/red';
 
-const defaultTheme = createMuiTheme({
+export default createMuiTheme({
   typography: {
     useNextVariants: true,
   },
   palette: {
-    primary: {
-      500: '#41ADDD',
-    },
+    primary: amber,
+    secondary: red,
+    success: green,
   },
 });
-
-export default defaultTheme;

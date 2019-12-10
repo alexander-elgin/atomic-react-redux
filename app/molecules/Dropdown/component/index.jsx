@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Select from '../Select';
 import Option from '../Option';
 
 function Dropdown(props) {
@@ -15,9 +14,9 @@ function Dropdown(props) {
   }
 
   return (
-    <Select value={props.value} onChange={props.onChange}>
+    <select value={props.value} onChange={props.onChange}>
       {content}
-    </Select>
+    </select>
   );
 }
 

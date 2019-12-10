@@ -41,7 +41,7 @@ import '!file-loader?name=[name].[ext]!./manifest.json';
 import 'file-loader?name=[name].[ext]!./.htaccess'; // eslint-disable-line import/extensions
 /* eslint-enable import/no-webpack-loader-syntax */
 
-import { translationMessages } from './i18n';
+import translationMessages from './i18n';
 import reducers from './reducers';
 import { DEFAULT_LOCALE } from './store/language/constants';
 import configureStore from './utils/store';
@@ -91,10 +91,9 @@ if (!window.Intl) {
   (new Promise((resolve) => {
     resolve(import('intl'));
   }))
-    .then(() => Promise.all([
-      import('intl/locale-data/jsonp/en.js'),
-      import('intl/locale-data/jsonp/de.js'),
-    ]))
+    .then(() => Promise.all(Object.keys(translationMessages).map((langIso2Code) =>
+      import(`intl/locale-data/jsonp/${langIso2Code}.js`)
+    )))
     .then(() => render(translationMessages))
     .catch((err) => {
       throw err;

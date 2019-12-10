@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import messages from './messages';
-import { appLocales } from '../../i18n';
+import translationMessages from '../../i18n';
 import Dropdown from '../../molecules/Dropdown';
 import { changeLocale } from '../../store/language/actions';
 import { makeSelectLocale } from '../../store/language/selectors';
@@ -20,7 +20,7 @@ const LocaleSwitcher = () => {
   return (
     <Dropdown
       value={locale}
-      values={appLocales}
+      values={Object.keys(translationMessages)}
       messages={messages}
       onChange={({ target }) => {
         const { value: localeId } = target;

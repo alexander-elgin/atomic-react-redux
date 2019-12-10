@@ -8,7 +8,7 @@ import LanguageProvider from '../LanguageProvider';
 
 import reducer from '../../store/language/reducer';
 import configureStore from '../../utils/store';
-import { translationMessages } from '../../i18n';
+import translationMessages from '../../i18n';
 
 Enzyme.configure({ adapter: new Adapter() });
 

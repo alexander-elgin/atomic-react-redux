@@ -1,37 +1,79 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { FaSignInAlt, FaSignOutAlt, FaUserPlus } from 'react-icons/fa';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import {
+  MdDeveloperBoard,
+  MdExitToApp,
+  MdHome,
+  MdPersonAdd,
+  MdPowerSettingsNew,
+} from 'react-icons/md';
 
-import Link from '../Link';
-
-import styles from './styles.scss';
 import messages from './messages';
 
-const LinksBlock = ({ authenticated }) => (
-  <div>
-    {authenticated ? (
-      <div className={styles['auth-links-block']}>
-        <Link icon={FaSignOutAlt} uri="/signout">
-          <FormattedMessage {...messages.signOut} />
-        </Link>
-      </div>
-    ) : (
-      <div className={styles['auth-links-block']}>
-        <Link icon={FaSignInAlt} uri="/signin">
-          <FormattedMessage {...messages.signIn} />
-        </Link>
-        <Link icon={FaUserPlus} uri="/signup">
-          <FormattedMessage {...messages.signUp} />
-        </Link>
-      </div>
-    )}
-  </div>
+const getLinksData = (authenticated) => {
+  const linksData = [
+    {
+      icon: MdHome,
+      text: messages.home,
+      uri: '/',
+    },
+    {
+      icon: MdDeveloperBoard,
+      text: messages.features,
+      uri: '/features',
+    },
+  ];
+
+  if (authenticated) {
+    linksData.push({
+      icon: MdPowerSettingsNew,
+      text: messages.signOut,
+      uri: '/signOut',
+    });
+  } else {
+    [
+      {
+        icon: MdExitToApp,
+        text: messages.signIn,
+        uri: '/signin',
+      },
+      {
+        icon: MdPersonAdd,
+        text: messages.signUp,
+        uri: '/signup',
+      },
+    ].forEach((linkData) => linksData.push(linkData));
+  }
+
+  return linksData;
+};
+
+const LinksBlock = ({ authenticated, close, isOpen }) => (
+  <Drawer open={isOpen} onClose={close}>
+    <div tabIndex={0} role="button" onClick={close} onKeyDown={close}>
+      <List>
+        {getLinksData(authenticated).map(({ icon: Icon, text, uri }) => (
+          <ListItem button component={Link} to={uri} key={uri}>
+            <ListItemIcon><Icon /></ListItemIcon>
+            <ListItemText><FormattedMessage {...text} /></ListItemText>
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  </Drawer>
 );
 
 LinksBlock.propTypes = {
   authenticated: PropTypes.bool,
+  close: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool,
 };
 
 export default LinksBlock;

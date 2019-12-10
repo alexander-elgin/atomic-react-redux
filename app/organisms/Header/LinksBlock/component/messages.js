@@ -1,11 +1,14 @@
-/*
- * HomePage Messages
- *
- * This contains all the text for the HomePage component.
- */
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  features: {
+    id: 'boilerplate.organisms.Header.features',
+    defaultMessage: 'Features',
+  },
+  home: {
+    id: 'boilerplate.organisms.Header.home',
+    defaultMessage: 'Home',
+  },
   signIn: {
     id: 'boilerplate.shared.Auth.signIn',
     defaultMessage: 'Sign in',

@@ -19,14 +19,16 @@ const Template = ({ component, ...rest }) => {
   const Content = component;
 
   return (
-    <AppWrapper>
+    <div>
       <Helmet titleTemplate="%s - React.js Boilerplate" defaultTitle="React.js Boilerplate">
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
       <Header />
-      <Content {...rest} />
+      <AppWrapper>
+        <Content {...rest} />
+      </AppWrapper>
       <Footer />
-    </AppWrapper>
+    </div>
   );
 };
 

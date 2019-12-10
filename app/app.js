@@ -47,7 +47,7 @@ import sagas from './sagas';
 import configureStore from './utils/store';
 
 // Import i18n messages
-import { translationMessages } from './i18n';
+import translationMessages from './i18n';
 
 import { basePath } from './env';
 
@@ -96,10 +96,9 @@ if (!window.Intl) {
   (new Promise((resolve) => {
     resolve(import('intl'));
   }))
-    .then(() => Promise.all([
-      import('intl/locale-data/jsonp/en.js'),
-      import('intl/locale-data/jsonp/de.js'),
-    ]))
+    .then(() => Promise.all(Object.keys(translationMessages).map((langIso2Code) =>
+      import(`intl/locale-data/jsonp/${langIso2Code}.js`)
+    )))
     .then(() => render(translationMessages))
     .catch((err) => {
       throw err;

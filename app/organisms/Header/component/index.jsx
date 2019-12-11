@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -9,18 +8,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import LinksBlock from '../LinksBlock';
 
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-};
 // eslint-disable-next-line react/prefer-stateless-function
 class Header extends React.Component {
   constructor(props) {
@@ -29,14 +16,15 @@ class Header extends React.Component {
   }
 
   render() {
-    const { authenticated, classes } = this.props;
+    const { authenticated, pageTitle } = this.props;
     return (
       <AppBar position="sticky">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" onClick={() => this.setState({ isOpen: true })}>
+          <IconButton color="inherit" onClick={() => this.setState({ isOpen: true })}>
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.grow}>
+          <Typography variant="h5">
+            { pageTitle }
           </Typography>
           <LinksBlock
             authenticated={authenticated}
@@ -51,7 +39,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   authenticated: PropTypes.bool,
-  classes: PropTypes.object.isRequired,
+  pageTitle: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(Header);
+export default Header;

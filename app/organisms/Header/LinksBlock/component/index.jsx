@@ -55,12 +55,12 @@ const getLinksData = (authenticated) => {
   return linksData;
 };
 
-const LinksBlock = ({ authenticated, close, isOpen }) => (
+const LinksBlock = ({ authenticated, close, isOpen, location }) => (
   <Drawer open={isOpen} onClose={close}>
     <div tabIndex={0} role="button" onClick={close} onKeyDown={close}>
       <List>
         {getLinksData(authenticated).map(({ icon: Icon, text, uri }) => (
-          <ListItem button component={Link} to={uri} key={uri}>
+          <ListItem button component={Link} to={uri} key={uri} disabled={uri === location.pathname}>
             <ListItemIcon><Icon /></ListItemIcon>
             <ListItemText><FormattedMessage {...text} /></ListItemText>
           </ListItem>
@@ -74,6 +74,7 @@ LinksBlock.propTypes = {
   authenticated: PropTypes.bool,
   close: PropTypes.func.isRequired,
   isOpen: PropTypes.bool,
+  location: PropTypes.object.isRequired,
 };
 
 export default LinksBlock;

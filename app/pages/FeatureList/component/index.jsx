@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 
 import H1 from '../../../atoms/H1';
 import List from '../../../atoms/List';
-import { MetaIntl, TitleIntl } from '../../../molecules/Helmet';
+import Page from '../../../molecules/Page';
 
 import Feature from '../Feature';
 import messages from './messages';
@@ -44,14 +44,12 @@ export default class FeatureList extends React.Component { // eslint-disable-lin
     ];
 
     return (
-      <div>
-        <TitleIntl {...messages.metaTitle} />
-        <MetaIntl name="description" {...messages.metaDescription} />
+      <Page title={messages.metaTitle} description={messages.metaDescription}>
         <H1>
           <FormattedMessage {...messages.header} />
         </H1>
         <List className={styles.list} items={featuresData.map((featureData) => <Feature {...featureData} />)} />
-      </div>
+      </Page>
     );
   }
 }

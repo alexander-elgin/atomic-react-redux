@@ -2,30 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import {
-  MdDeveloperBoard,
-  MdExitToApp,
-  MdHome,
-  MdPersonAdd,
-  MdPowerSettingsNew,
-} from 'react-icons/md';
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from '@material-ui/core';
+import {
+  DeveloperBoard,
+  ExitToApp,
+  Home,
+  PersonAdd,
+  PowerSettingsNew,
+} from '@material-ui/icons';
 
 import messages from './messages';
 
 const getLinksData = (authenticated) => {
   const linksData = [
     {
-      icon: MdHome,
+      icon: Home,
       text: messages.home,
       uri: '/',
     },
     {
-      icon: MdDeveloperBoard,
+      icon: DeveloperBoard,
       text: messages.features,
       uri: '/features',
     },
@@ -33,19 +35,19 @@ const getLinksData = (authenticated) => {
 
   if (authenticated) {
     linksData.push({
-      icon: MdPowerSettingsNew,
+      icon: PowerSettingsNew,
       text: messages.signOut,
       uri: '/signOut',
     });
   } else {
     [
       {
-        icon: MdExitToApp,
+        icon: ExitToApp,
         text: messages.signIn,
         uri: '/signin',
       },
       {
-        icon: MdPersonAdd,
+        icon: PersonAdd,
         text: messages.signUp,
         uri: '/signup',
       },

@@ -20,7 +20,6 @@ import App from './';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const reactIcons = require('react-icons');
 const defaultTheme = require('../defaultTheme');
 
 describe('<App />', () => {
@@ -28,7 +27,6 @@ describe('<App />', () => {
   let app;
 
   beforeEach(() => {
-    reactIcons.IconContext = { Provider: 'iconContextProvider' };
     defaultTheme.default = DUMMY_THEME;
     app = shallow(<App />);
   });
@@ -36,11 +34,6 @@ describe('<App />', () => {
   it('renders Material UI Theme Provider', () => {
     expect(app.type()).toEqual(MuiThemeProvider);
     expect(app.prop('theme')).toEqual(DUMMY_THEME);
-  });
-
-  it('sets the React icons default vertical alignment', () => {
-    const iconContextProvider = app.find(reactIcons.IconContext.Provider).first();
-    expect(iconContextProvider.prop('value')).toEqual({ style: { verticalAlign: 'middle' } });
   });
 
   describe('routes', () => {

@@ -2,7 +2,7 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   metaTitle: {
-    id: 'boilerplate.shared.Auth.signIn',
-    defaultMessage: 'Sign in',
+    id: 'boilerplate.shared.Auth.signUp',
+    defaultMessage: 'Sign up',
   },
 });

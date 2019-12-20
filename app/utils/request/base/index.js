@@ -1,6 +1,5 @@
 import 'whatwg-fetch';
 
-import { apiBaseUrl } from '../../../env';
 import { isTokenSet, getToken } from '../../auth';
 
 function getRequestParams(method, useJsonHeaders, data, tokenUsed) {
@@ -27,7 +26,7 @@ function getRequestParams(method, useJsonHeaders, data, tokenUsed) {
 }
 
 export function submitRequest(url, method, useJsonHeaders, data) {
-  return fetch(url, getRequestParams(method, useJsonHeaders, data, url.indexOf(apiBaseUrl) === 0)).then(
+  return fetch(url, getRequestParams(method, useJsonHeaders, data, url.indexOf(APP_ENV_API_BASE_URL) === 0)).then(
     (res) => res,
     () => ({ statusText: '404 (Not Found)' })
   );

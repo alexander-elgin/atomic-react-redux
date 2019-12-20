@@ -1,8 +1,6 @@
-import { apiBaseUrl } from '../../../env';
 import { extractJson, submitRequest } from './';
 
 const Auth = require('../../auth');
-const TOKEN = 'jwt token';
 
 describe('#submitRequest', () => {
   describe('success', () => {
@@ -62,69 +60,7 @@ describe('#submitRequest', () => {
       }));
     });
 
-    describe('default API', () => {
-      const url = `${apiBaseUrl}/users`;
-      const method = 'POST';
-      const data = {
-        username: 'alexander-elgin',
-        password: '123',
-      };
-
-      describe('token is set', () => {
-        beforeEach((done) => {
-          Auth.getToken = jest.fn().mockReturnValue(TOKEN);
-          Auth.isTokenSet = jest.fn().mockReturnValue(true);
-
-          submitRequest(url, method, true, data).then((response) => {
-            actualResponse = response;
-            done();
-          });
-        });
-
-        it('submits a request with Authorization header', () => expect(window.fetch).toBeCalledWith(url, {
-          body: JSON.stringify(data),
-          method,
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${TOKEN}`,
-          },
-        }));
-      });
-
-      describe('token is NOT set', () => {
-        beforeEach((done) => {
-          Auth.isTokenSet = jest.fn().mockReturnValue(false);
-
-          submitRequest(url, method, true, data).then((response) => {
-            actualResponse = response;
-            done();
-          });
-        });
-
-        it('submits a request without Authorization header', () => expect(window.fetch).toBeCalledWith(url, {
-          body: JSON.stringify(data),
-          method,
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        }));
-      });
-    });
-
     afterEach(() => expect(actualResponse).toEqual(dummyResponse));
-  });
-
-  describe('failure', () => {
-    beforeEach(() => {
-      window.fetch = jest.fn();
-      window.fetch.mockReturnValue(Promise.reject(new Error('fail')));
-    });
-
-    it('rejects with a particular status text', () => {
-      expect(submitRequest(`${apiBaseUrl}/users`, 'POST', true, {})).resolves.toEqual({ statusText: '404 (Not Found)' });
-    });
   });
 });
 

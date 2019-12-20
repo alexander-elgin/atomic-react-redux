@@ -1,5 +1,4 @@
 import { get, post, put, remove } from './';
-import { apiBaseUrl as defaultBaseUrl } from '../../env';
 
 jest.mock('./base', () => ({
   extractJson: (responseData) => {
@@ -12,16 +11,6 @@ jest.mock('./base', () => ({
 
 const checkRequest = (requestName, request, method, headers, path, customBaseUrl, payload, emptyPayload, finalPath) => {
   describe(`#${requestName}`, () => {
-    describe('default base URL with empty payload', () => {
-      it(`extracts JSON from a response of the ${method} request`, () => expect(request(path, {})).toEqual({
-        url: defaultBaseUrl + path,
-        method,
-        headers,
-        payload: (emptyPayload ? undefined : {}),
-        jsonExtracted: true,
-      }));
-    });
-
     describe('custom base URL with payload', () => {
       it(`extracts JSON from a response of the ${method} request`, () => {
         expect(request(path, payload, customBaseUrl)).toEqual({

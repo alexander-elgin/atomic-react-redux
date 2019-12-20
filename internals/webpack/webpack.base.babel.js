@@ -2,8 +2,13 @@
  * COMMON WEBPACK CONFIGURATION
  */
 
+require('dotenv-flow').config();
 const path = require('path');
 const webpack = require('webpack');
+
+const getAppEnv = (variables) => Object.keys(variables)
+  .filter((variable) => variable.indexOf('APP_ENV_') === 0)
+  .reduce((env, variable) => ({ ...env, [variable]: JSON.stringify(variables[variable]) }), {});
 
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
 // 'DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic,
@@ -13,6 +18,9 @@ process.noDeprecation = true;
 
 module.exports = (options) => ({
   entry: options.entry,
+  node: {
+    fs: 'empty',
+  },
   output: Object.assign({ // Compile into js/build.js
     path: path.resolve(process.cwd(), 'cordova/www'),
   }, options.output), // Merge with env dependent settings
@@ -100,6 +108,7 @@ module.exports = (options) => ({
     // inside your code for any environment checks; UglifyJS will automatically
     // drop any unreachable code.
     new webpack.DefinePlugin({
+      ...getAppEnv(process.env),
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },

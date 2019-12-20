@@ -7,6 +7,10 @@
     "jest": true,
     "es6": true
   },
+  "globals": {
+    "APP_ENV_API_BASE_URL": false,
+    "APP_ENV_BASE_PATH": false
+  },
   "plugins": [
     "redux-saga",
     "react",

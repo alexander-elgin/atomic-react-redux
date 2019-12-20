@@ -75,6 +75,7 @@
     "babel-polyfill": "6.23.0",
     "compression": "1.6.2",
     "cross-env": "5.0.0",
+    "dotenv-flow": "^3.1.0",
     "fontfaceobserver": "2.0.9",
     "history": "4.6.3",
     "hoist-non-react-statics": "2.1.1",

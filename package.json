@@ -94,6 +94,7 @@
     "redux-immutable": "4.0.0",
     "reselect": "4.0.0",
     "sanitize.css": "8.0.0",
+    "store": "^2.0.12",
     "styled-components": "4.2.0",
     "typeface-roboto": "0.0.54",
     "warning": "3.0.0",

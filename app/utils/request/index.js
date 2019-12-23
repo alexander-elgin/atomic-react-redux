@@ -10,7 +10,7 @@ const postRaw = (path, payload, rootUrl) => submitRequest(rootUrl + path, 'POST'
 const putRaw = (path, payload, rootUrl) => submitRequest(rootUrl + path, 'PUT', true, payload);
 const removeRaw = (path, payload, rootUrl) => submitRequest(rootUrl + path, 'DELETE', false, payload);
 
-export const get = (path, payload, rootUrl = APP_ENV_API_BASE_URL) => extractJson(getRaw(path, payload, rootUrl));
-export const post = (path, payload, rootUrl = APP_ENV_API_BASE_URL) => extractJson(postRaw(path, payload, rootUrl));
-export const put = (path, payload, rootUrl = APP_ENV_API_BASE_URL) => extractJson(putRaw(path, payload, rootUrl));
-export const remove = (path, payload, rootUrl = APP_ENV_API_BASE_URL) => extractJson(removeRaw(path, payload, rootUrl));
+export const get = (path, payload, rootUrl = '') => extractJson(getRaw(path, payload, rootUrl));
+export const post = (path, payload, rootUrl = '') => extractJson(postRaw(path, payload, rootUrl));
+export const put = (path, payload, rootUrl = '') => extractJson(putRaw(path, payload, rootUrl));
+export const remove = (path, payload, rootUrl = '') => extractJson(removeRaw(path, payload, rootUrl));

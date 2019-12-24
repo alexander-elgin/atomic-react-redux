@@ -1,6 +1,6 @@
 import { clearSubmitErrors, reset, startSubmit, stopSubmit } from 'redux-form';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 
 import {
   FORM_SUBMISSION_FAILED,

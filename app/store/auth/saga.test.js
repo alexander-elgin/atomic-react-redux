@@ -2,7 +2,7 @@ import { call, takeLatest } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 import { clearSubmitErrors, reset, startSubmit, stopSubmit } from 'redux-form';
 
 import { removeToken, setToken } from '../../utils/auth';

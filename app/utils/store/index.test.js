@@ -21,7 +21,7 @@ jest.mock('redux', () => ({
   createStore: (reducers, state, middleware) => ({ reducers, state, middleware }),
 }));
 
-jest.mock('react-router-redux', () => ({
+jest.mock('connected-react-router', () => ({
   routerMiddleware: (history) => ({
     routerHistory: history,
   }),

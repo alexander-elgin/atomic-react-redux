@@ -14,7 +14,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import FontFaceObserver from 'fontfaceobserver';
-import { createBrowserHistory as createHistory } from 'history';
+import { createHashHistory as createHistory } from 'history';
 import 'sanitize.css/sanitize.css';
 
 // Import root app

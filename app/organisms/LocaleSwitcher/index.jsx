@@ -2,12 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import messages from './messages';
-import translationMessages from '../../i18n';
+import langs from './langs.json';
 import Dropdown from '../../molecules/Dropdown';
 import { changeLocale } from '../../store/language/actions';
 import { makeSelectLocale } from '../../store/language/selectors';
 import setYupLocale from '../../utils/yup';
+
 
 const selector = createStructuredSelector({
   locale: makeSelectLocale(),
@@ -20,8 +20,7 @@ const LocaleSwitcher = () => {
   return (
     <Dropdown
       value={locale}
-      values={Object.keys(translationMessages)}
-      messages={messages}
+      values={langs}
       onChange={({ target }) => {
         const { value: localeId } = target;
         setYupLocale(localeId);

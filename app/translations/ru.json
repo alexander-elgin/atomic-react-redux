@@ -4,8 +4,6 @@
   "boilerplate.organisms.Header.features": "Возможности",
   "boilerplate.organisms.Header.home": "Главная",
   "boilerplate.organisms.Header.logo": "Лого",
-  "boilerplate.organisms.LocaleSwitcher.de": "de",
-  "boilerplate.organisms.LocaleSwitcher.en": "en",
   "boilerplate.organisms.SignInForm.noAccount": "Нет учетной записи?",
   "boilerplate.organisms.SignUpForm.alreadyHaveAccount": "Есть учетная запись?",
   "boilerplate.pages.FeatureList.css.header": "Возможности",

@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from 'react-intl';
 
-const Option = ({ value, message, intl }) => (
-  <option value={value}>
-    {message ? intl.formatMessage(message) : value}
-  </option>
-);
+const Option = ({ value, message }) => <option value={value}>{message || value}</option>;
 
 Option.propTypes = {
   value: PropTypes.string.isRequired,
-  message: PropTypes.object,
-  intl: intlShape.isRequired,
+  message: PropTypes.string,
 };
 
-export default injectIntl(Option);
+export default Option;

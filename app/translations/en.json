@@ -4,8 +4,6 @@
   "boilerplate.organisms.Header.features": "Features",
   "boilerplate.organisms.Header.home": "Home",
   "boilerplate.organisms.Header.logo": "Logo",
-  "boilerplate.organisms.LocaleSwitcher.de": "de",
-  "boilerplate.organisms.LocaleSwitcher.en": "en",
   "boilerplate.organisms.SignInForm.noAccount": "Don't have an account?",
   "boilerplate.organisms.SignUpForm.alreadyHaveAccount": "Already have an account?",
   "boilerplate.pages.FeatureList.css.header": "Features",

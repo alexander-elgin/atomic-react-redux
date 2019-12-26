@@ -3,28 +3,20 @@ import PropTypes from 'prop-types';
 
 import Option from './Option';
 
-function Dropdown(props) {
-  let content = (<option>--</option>);
-
-  // If we have items, render them
-  if (props.values) {
-    content = props.values.map((value) => (
-      <Option key={value} value={value} message={props.messages[value]} />
-    ));
-  }
-
-  return (
-    <select value={props.value} onChange={props.onChange}>
-      {content}
-    </select>
-  );
-}
+const Dropdown = ({ onChange, value: currentValue, values }) => (
+  <select value={currentValue} onChange={onChange}>
+    {
+      values ? Object.keys(values).map((value) => (
+        <Option key={value} value={value} message={values[value]} />
+      )) : <option>--</option>
+    }
+  </select>
+);
 
 Dropdown.propTypes = {
   onChange: PropTypes.func,
-  values: PropTypes.array,
+  values: PropTypes.object,
   value: PropTypes.string,
-  messages: PropTypes.object,
 };
 
 export default Dropdown;

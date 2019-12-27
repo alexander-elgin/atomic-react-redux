@@ -3,10 +3,11 @@ import { defineMessages } from 'react-intl';
 import {
   ERRORS_PREFIX,
   EMPTY_PASSWORD,
-  FORM_SUBMISSION_FAILED,
   INCORRECT_CREDENTIALS,
   INVALID_EMAIL,
 } from '../../store/auth/constants';
+
+import { FORM_SUBMISSION_FAILED } from '../../utils/form';
 
 const messagesData = {
   noAccount: {

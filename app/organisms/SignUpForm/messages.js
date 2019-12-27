@@ -3,12 +3,13 @@ import { defineMessages } from 'react-intl';
 import {
   ERRORS_PREFIX,
   DUPLICATED_EMAIL,
-  FORM_SUBMISSION_FAILED,
   INCORRECT_CREDENTIALS,
   INVALID_EMAIL,
   INVALID_NAME,
   INVALID_PASSWORD,
 } from '../../store/auth/constants';
+
+import { FORM_SUBMISSION_FAILED } from '../../utils/form';
 
 const messagesData = {
   alreadyHaveAccount: {

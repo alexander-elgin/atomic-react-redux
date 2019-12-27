@@ -6,7 +6,9 @@ import messages from './messages';
 
 const SignInPage = () => (
   <Page title={messages.metaTitle}>
-    <SignInForm />
+    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <SignInForm />
+    </div>
   </Page>
 );
 

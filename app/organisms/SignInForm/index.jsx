@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { TextField } from 'formik-material-ui';
 import {
   Button,
   Card,
@@ -10,82 +11,95 @@ import {
   CardHeader,
   Grid,
   InputAdornment,
+  LinearProgress,
 } from '@material-ui/core';
 import {
   Email,
   Lock,
 } from '@material-ui/icons';
-import { TextField } from 'redux-form-material-ui';
-import { Field, reduxForm } from 'redux-form/immutable';
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 
-import { SIGN_IN_FORM } from '../../store/auth/constants';
-import { submitSignInRequest } from '../../store/auth/actions';
-
-import Error from '../../atoms/Error';
 import messages from './messages';
+import Error from '../../atoms/Error';
+import { setSignInData } from '../../store/auth/actions';
+import { setToken } from '../../utils/auth';
+import submitForm from '../../utils/form';
+import { post } from '../../utils/request';
 
-const SignInForm = ({ error, intl, handleSubmit }) => {
+const SignInForm = ({ intl }) => {
+  const { push } = useHistory();
   const dispatch = useDispatch();
 
   return (
-    <form
-      onSubmit={handleSubmit((values) => dispatch(submitSignInRequest(values.toJS(), intl, messages)))}
-      style={{ display: 'flex', justifyContent: 'space-around' }}
+    <Formik
+      initialValues={{ _error: '', email: '', password: '' }}
+      validate={() => ({})}
+      onSubmit={(values, formActions) => submitForm(
+        () => post('/auth/signin', values),
+        ({ token, user }) => {
+          dispatch(setSignInData(user));
+          setToken(token);
+          push('/features');
+        },
+        intl, messages, formActions
+      )}
     >
-      <Card style={{ maxWidth: 280 }}>
-        <CardHeader title={intl.formatMessage(messages.signIn)} />
-        <CardContent>
-          <Error>{error}</Error>
-          <Grid container spacing={24}>
-            <Grid item xs={12}>
-              <Field
-                component={TextField}
-                label={intl.formatMessage(messages.email)}
-                name="email"
-                type="email"
-                InputProps={{
-                  startAdornment: <InputAdornment position="start"><Email color="primary" /></InputAdornment>,
-                }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Field
-                component={TextField}
-                label={intl.formatMessage(messages.password)}
-                name="password"
-                type="password"
-                InputProps={{
-                  startAdornment: <InputAdornment position="start"><Lock color="primary" /></InputAdornment>,
-                }}
-              />
-            </Grid>
-          </Grid>
-        </CardContent>
-        <CardActions>
-          <Grid container spacing={24}>
-            <Grid item xs={12}>
-              <Button type="submit" variant="contained" color="primary">
-                <FormattedMessage {...messages.signIn} />
-              </Button>
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage {...messages.noAccount} />&nbsp;
-              <Link to={'/signup'}><FormattedMessage {...messages.signUp} /></Link>
-            </Grid>
-          </Grid>
-        </CardActions>
-      </Card>
-    </form>
+      {({ isSubmitting }) => (
+        <Form>
+          <Card style={{ maxWidth: 280 }}>
+            {isSubmitting ? <LinearProgress /> : null}
+            <CardHeader title={intl.formatMessage(messages.signIn)} />
+            <CardContent>
+              <ErrorMessage name="_error" component={Error} />
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
+                  <Field
+                    component={TextField}
+                    disabled={isSubmitting}
+                    label={intl.formatMessage(messages.email)}
+                    name="email"
+                    type="email"
+                    InputProps={{
+                      startAdornment: <InputAdornment position="start"><Email color="primary" /></InputAdornment>,
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Field
+                    component={TextField}
+                    disabled={isSubmitting}
+                    label={intl.formatMessage(messages.password)}
+                    name="password"
+                    type="password"
+                    InputProps={{
+                      startAdornment: <InputAdornment position="start"><Lock color="primary" /></InputAdornment>,
+                    }}
+                  />
+                </Grid>
+              </Grid>
+            </CardContent>
+            <CardActions>
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
+                  <Button type="submit" variant="contained" color="primary" disabled={isSubmitting}>
+                    <FormattedMessage {...messages.signIn} />
+                  </Button>
+                </Grid>
+                <Grid item xs={12}>
+                  <FormattedMessage {...messages.noAccount} />&nbsp;
+                  <Link to={'/signup'}><FormattedMessage {...messages.signUp} /></Link>
+                </Grid>
+              </Grid>
+            </CardActions>
+          </Card>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
 SignInForm.propTypes = {
-  error: PropTypes.string,
-  handleSubmit: PropTypes.func,
   intl: intlShape.isRequired,
 };
 
-export default reduxForm({
-  form: SIGN_IN_FORM,
-})(injectIntl(SignInForm));
+export default injectIntl(SignInForm);

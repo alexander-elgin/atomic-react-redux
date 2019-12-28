@@ -51,7 +51,7 @@ const SignInForm = ({ intl }) => {
             <CardHeader title={intl.formatMessage(messages.signIn)} />
             <CardContent>
               <ErrorMessage name="_error" component={Error} />
-              <Grid container spacing={24}>
+              <Grid container spacing={3}>
                 <Grid item xs={12}>
                   <Field
                     component={TextField}
@@ -79,7 +79,7 @@ const SignInForm = ({ intl }) => {
               </Grid>
             </CardContent>
             <CardActions>
-              <Grid container spacing={24}>
+              <Grid container spacing={3}>
                 <Grid item xs={12}>
                   <Button type="submit" variant="contained" color="primary" disabled={isSubmitting}>
                     <FormattedMessage {...messages.signIn} />

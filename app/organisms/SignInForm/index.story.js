@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 
 import SignInForm from './';
 import defaultTheme from '../App/defaultTheme';

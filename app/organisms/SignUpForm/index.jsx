@@ -44,7 +44,7 @@ const SignUpForm = ({ intl }) => {
             <CardHeader title={intl.formatMessage(messages.signUp)} />
             <CardContent>
               <ErrorMessage name="_error" component={Error} />
-              <Grid container spacing={24}>
+              <Grid container spacing={3}>
                 <Grid item xs={12}>
                   <Field
                     component={TextField}
@@ -84,7 +84,7 @@ const SignUpForm = ({ intl }) => {
               </Grid>
             </CardContent>
             <CardActions>
-              <Grid container spacing={24}>
+              <Grid container spacing={3}>
                 <Grid item xs={12}>
                   <Button variant="contained" type="submit" color="primary" disabled={isSubmitting}>
                     <FormattedMessage {...messages.signUp} />

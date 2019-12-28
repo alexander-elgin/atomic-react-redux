@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import List from '../../../atoms/List';
-import LoadingIndicator from '../../../molecules/LoadingIndicator';
 
 import Repository from './Repository';
 
@@ -13,7 +13,10 @@ import styles from './styles.scss';
 const RepositoriesList = ({ loading, error, repos }) => (loading || (error !== false) || (repos !== false))
   ? (
     <div className={styles.wrapper}>
-      {loading ? <LoadingIndicator /> : <List className={styles.list} items={getListItems(repos)} />}
+      {loading
+        ? <div className={styles.centered}><CircularProgress /></div>
+        : <List className={styles.list} items={getListItems(repos)} />
+      }
     </div>
   ) : null
 ;

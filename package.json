@@ -79,7 +79,6 @@
     "fontfaceobserver": "2.0.9",
     "formik": "^2.0.8",
     "formik-material-ui": "^1.0.0",
-    "history": "^4.10.1",
     "hoist-non-react-statics": "2.1.1",
     "immutable": "3.8.1",
     "intl": "1.2.5",

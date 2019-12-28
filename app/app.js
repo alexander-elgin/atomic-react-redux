@@ -14,7 +14,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import FontFaceObserver from 'fontfaceobserver';
-import { createHashHistory as createHistory } from 'history';
 import 'sanitize.css/sanitize.css';
 
 // Import root app
@@ -59,7 +58,6 @@ openSansObserver.load().then(() => {
 });
 
 setYupLocale(DEFAULT_LOCALE);
-const history = createHistory({ basename: APP_ENV_BASE_PATH });
 const store = configureStore(reducers);
 const MOUNT_NODE = document.getElementById('app');
 

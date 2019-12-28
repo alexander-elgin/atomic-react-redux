@@ -21,12 +21,6 @@ jest.mock('redux', () => ({
   createStore: (reducers, state, middleware) => ({ reducers, state, middleware }),
 }));
 
-jest.mock('connected-react-router', () => ({
-  routerMiddleware: (history) => ({
-    routerHistory: history,
-  }),
-}));
-
 jest.mock('redux-immutable', () => ({
   combineReducers: (reducers) => ({
     combinedReducers: reducers,
@@ -36,7 +30,7 @@ jest.mock('redux-immutable', () => ({
 describe('store', () => {
   const reducersList = ['reducer 1', 'reducer 2'];
 
-  const getExpectedResult = (state, history) => ({
+  const getExpectedResult = (state) => ({
     reducers: {
       combinedReducers: { ...reducersList },
     },
@@ -45,9 +39,6 @@ describe('store', () => {
       composed: {
         appliedMiddleware: [
           'sagaMiddleware',
-          {
-            routerHistory: history,
-          },
         ],
       },
     },

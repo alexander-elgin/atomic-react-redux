@@ -70,7 +70,6 @@
     "@material-ui/icons": "^3.0.1",
     "babel-polyfill": "6.23.0",
     "compression": "1.6.2",
-    "connected-react-router": "^6.6.1",
     "cross-env": "5.0.0",
     "dotenv-flow": "^3.1.0",
     "fontfaceobserver": "2.0.9",

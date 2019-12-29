@@ -5,7 +5,7 @@
  * code.
  */
 
-// Needed for redux-saga es6 generator support
+// Needed for es6 generator support
 import 'babel-polyfill';
 
 // Import all the third party stuff
@@ -42,7 +42,6 @@ import 'file-loader?name=[name].[ext]!./.htaccess'; // eslint-disable-line impor
 /* eslint-enable import/no-webpack-loader-syntax */
 
 import reducers from './reducers';
-import sagas from './sagas';
 
 import configureStore from './utils/store';
 
@@ -60,10 +59,8 @@ openSansObserver.load().then(() => {
   document.body.classList.remove('fontLoaded');
 });
 
-// Create redux store with history
-const initialState = {};
 const history = createHistory({ basename: APP_ENV_BASE_PATH });
-const store = configureStore(reducers, initialState, sagas, history);
+const store = configureStore(reducers);
 const MOUNT_NODE = document.getElementById('app');
 
 const render = (messages) => {

@@ -10,6 +10,7 @@ import {
 import { FORM_SUBMISSION_FAILED } from '../../utils/form';
 
 const messagesData = {
+  [FORM_SUBMISSION_FAILED]: { id: `boilerplate.shared.errors.${FORM_SUBMISSION_FAILED}` },
   noAccount: {
     id: 'boilerplate.organisms.SignInForm.noAccount',
     defaultMessage: 'Don\'t have an account?',
@@ -34,7 +35,6 @@ const messagesData = {
 
 [
   EMPTY_PASSWORD,
-  FORM_SUBMISSION_FAILED,
   INCORRECT_CREDENTIALS,
   INVALID_EMAIL,
 ].forEach((message) => {

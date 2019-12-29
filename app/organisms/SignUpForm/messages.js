@@ -16,6 +16,7 @@ const messagesData = {
     id: 'boilerplate.organisms.SignUpForm.alreadyHaveAccount',
     defaultMessage: 'Already have an account?',
   },
+  [FORM_SUBMISSION_FAILED]: { id: `boilerplate.shared.errors.${FORM_SUBMISSION_FAILED}` },
   signIn: {
     id: 'boilerplate.shared.Auth.signIn',
     defaultMessage: 'Sign in',
@@ -40,7 +41,6 @@ const messagesData = {
 
 [
   DUPLICATED_EMAIL,
-  FORM_SUBMISSION_FAILED,
   INCORRECT_CREDENTIALS,
   INVALID_EMAIL,
   INVALID_NAME,

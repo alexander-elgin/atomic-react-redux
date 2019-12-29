@@ -39,7 +39,6 @@
   "boilerplate.pages.SignOut.signOutMessage": "Abmeldung",
   "boilerplate.shared.Auth.errors.DUPLICATED_EMAIL": "Die E-Mail ist bereits vergeben",
   "boilerplate.shared.Auth.errors.EMPTY_PASSWORD": "Das Passwort darf nicht leer sein",
-  "boilerplate.shared.Auth.errors.FORM_SUBMISSION_FAILED": "Das Formular kann nicht gesendet werden",
   "boilerplate.shared.Auth.errors.INCORRECT_CREDENTIALS": "Der Benutzername / die E-Mail-Adresse und das Passwort stimmen nicht überein",
   "boilerplate.shared.Auth.errors.INVALID_EMAIL": "Ungültige E-Mail",
   "boilerplate.shared.Auth.errors.INVALID_NAME": "Ungültiger Name",
@@ -49,5 +48,6 @@
   "boilerplate.shared.Auth.password": "Passwort",
   "boilerplate.shared.Auth.signIn": "Einloggen",
   "boilerplate.shared.Auth.signOut": "Abmelden",
-  "boilerplate.shared.Auth.signUp": "Registrieren"
+  "boilerplate.shared.Auth.signUp": "Registrieren",
+  "boilerplate.shared.errors.FORM_SUBMISSION_FAILED": "Das Formular kann nicht gesendet werden"
 }

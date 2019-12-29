@@ -1,3 +1,15 @@
+.form {
+  margin-bottom: 1em;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px dotted #999;
+  margin-left: 0.4em;
+}
+
 .section {
   margin: 3em auto;
 
@@ -9,8 +21,4 @@
 .centered-section {
   composes: section;
   text-align: center;
-}
-
-.form {
-  margin-bottom: 1em;
 }

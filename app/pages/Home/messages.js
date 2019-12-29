@@ -14,6 +14,10 @@ export default defineMessages({
     id: 'boilerplate.pages.Home.metaDescription',
     defaultMessage: 'The React.js Boilerplate application homepage',
   },
+  showRepositories: {
+    id: 'boilerplate.pages.Home.showRepositories',
+    defaultMessage: 'Show Github repositories by',
+  },
   startProjectHeader: {
     id: 'boilerplate.pages.Home.start_project.header',
     defaultMessage: 'Start your next react project in seconds',
@@ -25,5 +29,9 @@ export default defineMessages({
   trymeHeader: {
     id: 'boilerplate.pages.Home.tryme.header',
     defaultMessage: 'Try me!',
+  },
+  username: {
+    id: 'boilerplate.pages.Home.username',
+    defaultMessage: 'username',
   },
 });

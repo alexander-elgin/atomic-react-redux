@@ -1,49 +1,36 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { FormattedMessage } from 'react-intl';
-
-import { changeUsername, loadRepositories } from '../../store/github/actions';
-import { makeSelectError, makeSelectRepositories, makeSelectCurrentUsername } from '../../store/github/selectors';
-import { setLoading } from '../../store/loading/actions';
-import { makeSelectLoading } from '../../store/loading/selectors';
-
-import H2 from '../../atoms/H2';
-import Page from '../../molecules/Page';
-
-import RepositoriesList from './RepositoriesList';
-import UsernameField from './UsernameField';
+import React, { useState } from 'react';
+import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
+import { Field, Form, Formik } from 'formik';
 
 import messages from './messages';
-
+import RepositoriesList from './RepositoriesList';
 import styles from './styles.scss';
+import H2 from '../../atoms/H2';
+import Page from '../../molecules/Page';
+import { get } from '../../utils/request';
 
-const selector = createStructuredSelector({
-  repos: makeSelectRepositories(),
-  username: makeSelectCurrentUsername(),
-  loading: makeSelectLoading(),
-  error: makeSelectError(),
-});
+const HomePage = ({ intl }) => {
+  const [currentUsername, setCurrentUsername] = useState(undefined);
+  const [error, setError] = useState(false);
+  const [repos, setRepos] = useState([]);
 
-const HomePage = () => {
-  const { error, loading, repos, username } = useSelector(selector);
-  const repositoriesListProps = { loading, error, repos };
-  const dispatch = useDispatch();
+  const onSubmitForm = async ({ username }) => {
+    setError(false);
+    setRepos([]);
 
-  const onSubmitForm = (evt) => {
-    if (evt !== undefined && evt.preventDefault) {
-      evt.preventDefault();
+    try {
+      const repositories = await get(
+        `/users/${username}/repos`,
+        { type: 'all', sort: 'updated' },
+        'https://api.github.com'
+      );
+
+      setRepos(repositories);
+      setCurrentUsername(username);
+    } catch (e) {
+      setError(true);
     }
-
-    dispatch(setLoading());
-    dispatch(loadRepositories());
   };
-
-  useEffect(() => {
-    if (username && username.trim().length > 0) {
-      onSubmitForm();
-    }
-  }, []);
 
   return (
     <Page title={messages.metaTitle} description={messages.metaDescription}>
@@ -59,13 +46,44 @@ const HomePage = () => {
         <H2>
           <FormattedMessage {...messages.trymeHeader} />
         </H2>
-        <form onSubmit={onSubmitForm} className={styles.form}>
-          <UsernameField onChange={({ target }) => dispatch(changeUsername(target.value))} value={username} />
-        </form>
-        <RepositoriesList {...repositoriesListProps} />
+        <Formik initialValues={{ username: '' }} validate={() => ({})} onSubmit={(data) => onSubmitForm(data)}>
+          {({ handleSubmit, isSubmitting, setFieldValue }) => {
+            let timeout;
+
+            const triggerSubmit = ({ target }) => {
+              if (timeout !== undefined) {
+                clearTimeout(timeout);
+              }
+
+              timeout = setTimeout(handleSubmit, 1500);
+              setFieldValue('username', target.value);
+            };
+
+            return (
+              <div>
+                <Form className={styles.form}>
+                  <FormattedMessage {...messages.showRepositories} />
+                  <Field
+                    className={styles.input}
+                    disabled={isSubmitting}
+                    placeholder={intl.formatMessage(messages.username)}
+                    name="username"
+                    type="text"
+                    onChange={triggerSubmit}
+                  />
+                </Form>
+                <RepositoriesList error={error} loading={isSubmitting} repos={repos} username={currentUsername} />
+              </div>
+            );
+          }}
+        </Formik>
       </section>
     </Page>
   );
 };
 
-export default HomePage;
+HomePage.propTypes = {
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(HomePage);

@@ -10,19 +10,19 @@ import Repository from './Repository';
 import messages from './messages';
 import styles from './styles.scss';
 
-const RepositoriesList = ({ loading, error, repos }) => (loading || (error !== false) || (repos !== false))
+const RepositoriesList = ({ loading, error, repos, username }) => (loading || (error !== false) || (repos.length > 0))
   ? (
     <div className={styles.wrapper}>
       {loading
         ? <div className={styles.centered}><CircularProgress /></div>
-        : <List className={styles.list} items={getListItems(repos)} />
+        : <List className={styles.list} items={getListItems(repos, username)} />
       }
     </div>
   ) : null
 ;
 
-const getListItems = (repos) => (repos !== false)
-  ? repos.map((repository) => <Repository repository={repository} />)
+const getListItems = (repos, username) => (repos.length > 0)
+  ? repos.map((repository) => <Repository repository={repository} username={username} />)
   : [<FormattedMessage {...messages.somethingWrong} />]
 ;
 
@@ -30,6 +30,7 @@ RepositoriesList.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.any,
   repos: PropTypes.any,
+  username: PropTypes.string,
 };
 
 export default RepositoriesList;

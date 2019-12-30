@@ -41,12 +41,11 @@ import '!file-loader?name=[name].[ext]!./manifest.json';
 import 'file-loader?name=[name].[ext]!./.htaccess'; // eslint-disable-line import/extensions
 /* eslint-enable import/no-webpack-loader-syntax */
 
-import reducers from './reducers';
-
-import configureStore from './utils/store';
-
-// Import i18n messages
 import { translationMessages } from './i18n';
+import reducers from './reducers';
+import { DEFAULT_LOCALE } from './store/language/constants';
+import configureStore from './utils/store';
+import setYupLocale from './utils/yup';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
@@ -59,6 +58,7 @@ openSansObserver.load().then(() => {
   document.body.classList.remove('fontLoaded');
 });
 
+setYupLocale(DEFAULT_LOCALE);
 const history = createHistory({ basename: APP_ENV_BASE_PATH });
 const store = configureStore(reducers);
 const MOUNT_NODE = document.getElementById('app');
